@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAMS</title>
+    <style>
+      
+      @font-face {
+    font-family: 'Nunito-Bold';
+    src: url('fonts/Nunito-Bold.ttf') format('truetype');
+}
+    /* Add more src lines if you have different font formats */
+
+    ul {
+            top: 0;
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            overflow: hidden;
+            background-color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 1000; /* Ensuring the navigation stays on top */
+        }
+
+        li {
+            float: right;
+        }
+
+        li a {
+            display: block;
+            color: #324163;
+            text-align: center;
+            padding: 21px 10px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #B1B9C2;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+
+        
+		body {
+			background-image: url('background.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+            font-family: 'Nunito-Bold',sans-serif;
+            margin: 0;
+            padding: 0;
+		}
+
+
+        .member-card {
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 20px;
+        margin: 5% auto;
+    }
+
+
+    .member-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .center-nav{
+    position: absolute;
+    top: 115%; /* Center vertically */
+    left: 10%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the div */
+    text-align: center;
+    z-index: 999; /* Ensure it's above other elements */
+
+    }
+
+
+
+.title{
+font-size: 20px;
+margin: 17px;
+color: #324163;
+font-weight: bold;
+position: absolute;
+}
+
+
+    .main-content{
+        top: 0;
+            margin: 0 20%;
+            padding: 20px;
+            overflow: hidden;
+            width: 75%;
+    
+
+    }
+
+    .missiontitle{
+            font-size: 60px;
+            text-align: center;
+            font-family: century gothic;
+
+    }
+
+    .missiondesc{
+            font-size: 15px;
+            text-align: justify;
+    }
+
+    .font-title{
+    font-size: 35px;
+    color: #324163;
+    padding: 13px 30px; /* Adjust padding as needed */
+    border: none;
+    font-family: 'Nunito-Bold', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px; /* Adjust margin as needed */
+    width: 200px; /* Fixed width for buttons */
+}
+
+
+.font1{
+    background-color: #324163;
+    color: #fff;
+    padding: 13px 30px; /* Adjust padding as needed */
+    border: none;
+    font-family: 'Nunito-Bold', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px; /* Adjust margin as needed */
+    width: 200px; /* Fixed width for buttons */
+}
+
+
+.font2{
+    background-color: #869db8;
+    color: #fff;
+    padding: 13px 30px; /* Adjust padding as needed */
+    border: none;
+    font-family: 'Nunito-Bold', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px; /* Adjust margin as needed */
+    width: 200px; /* Fixed width for buttons */
+}
+
+.font2:hover{
+    background-color: #324163;
+    text-decoration: none;
+}
+
+
+.img-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+
+    .img-1 {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .img-title {
+        padding: 20px;
+    }
+
+    .img-subtitle {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .img-desc {
+        color: #666;
+        margin-bottom: 10px;
+    }
+    .dropbtn {
+            display: inline-block;
+            color: #324163;
+            text-align: center;
+            padding: 21px 10px;
+            text-decoration: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            z-index: 1001;
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content1 {
+            display: none;
+            position: fixed; /* Change position to fixed */
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1002; /* Set a high z-index */
+            top: 70px; /* Adjust the top position as needed */
+            left: 1705px; /* Adjust the left position as needed */
+        }
+
+        .dropdown-content2 {
+            display: none;
+            position: fixed; /* Change position to fixed */
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1002; /* Set a high z-index */
+            top: 70px; /* Adjust the top position as needed */
+            left: 1420px; /* Adjust the left position as needed */
+        }
+
+        .dropdown-content3 {
+            display: none;
+            position: fixed; /* Change position to fixed */
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1002; /* Set a high z-index */
+            top: 70px; /* Adjust the top position as needed */
+            left: 1188px; /* Adjust the left position as needed */
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content1{
+            display: block;
+        }
+
+        /* Style the dropdown links */
+        .dropdown-content1 a {
+            color: #324163;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content1 a:hover {
+            background-color: #B1B9C2;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content2{
+            display: block;
+        }
+
+        /* Style the dropdown links */
+        .dropdown-content2 a {
+            color: #324163;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content2 a:hover {
+            background-color: #B1B9C2;
+        }
+
+           /* Show the dropdown menu on hover */
+           .dropdown:hover .dropdown-content3{
+            display: block;
+        }
+
+        /* Style the dropdown links */
+        .dropdown-content3 a {
+            color: #324163;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content3 a:hover {
+            background-color: #B1B9C2;
+        }
+
+
+
+    
+    </style>
+</head>
+
+
+<body>
+    <ul>
+        <p class="title"> Sangguniang Kabataan ng Barangay Santolan </p>
+        <li><a href="login.html">LOGIN</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">RESOURCES</a>
+            <div class="dropdown-content1">
+                <a href="resources1.html">SK ACCOMPLISHMENTS</a>
+                <a href="resources2.html">OPPORTUNITIES</a>
+                <a href="resources3.html">PROCUREMENT SECTION</a>
+                <a href="resources4.html">CITIZEN'S CHARTER</a>
+                <a href="resources5.html">SK POLICY RESOLUTIONS</a>
+                <a href="resources6.html">DOWNLOADABLES</a>
+                <a href="resources7.html">SK SYSTEMS OR FORMS</a>
+                <a href="resources8.html">TRANNSPARENCY BOARD</a>
+                <!-- Add more links as needed -->
+            </div>
+        </li>
+        <li><a href="login.html">BID OPPORTUNITIES</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT US</a>
+            <div class="dropdown-content2">
+                <a href="organization.html">SK OFFICIALS</a>
+                <a href="aboutus2.html">ORGANIZATIONAL STRUCTURE</a>
+                <a href="aboutus3.html">MISSION, VISION, AND CORE VALUES</a>
+                <a href="aboutus4.html">HISTORY OF SK</a>
+                <!-- Add more links as needed -->
+            </div>
+        </li>
+        <li><a href="contacts.html">CONTACT US</a></li>
+        <li class="dropdown">
+            <a href="programs.html" class="dropbtn">PROGRAMS</a>
+            <div class="dropdown-content3">
+                <a href="programs.html">GOVERNANCE</a>
+                <a href="programs2.html">HEALTH</a>
+                <a href="programs3.html">AGRICULTURE</a>
+                <a href="programs4.html">SOCIAL INCLUSION AND EQUITY</a>
+                <a href="programs5.html">ACTIVE CITIZENSHIP</a>
+                <a href="programs6.html">EDUCATION</a>
+                <a href="programs7.html">ECONOMIC EMPOWERMENT</a>
+                <a href="programs8.html">ENVIRONMENT</a>
+                <a href="programs9.html">GLOBAL MOBILITY</a>
+                <a href="programs10.html">PEACEBUILDING AND SECURITY</a>
+                <!-- Add more links as needed -->
+            </div>
+        </li>
+        <li><a href="home.html">HOME</a></li>
+    </ul>
+
+    
+    <div class="member-card">
+        <img src="header-programs.png" alt="Member 2" class="member-image">
+    </div> 
+    
+    
+    <div class="center-nav"> 
+       <table cellpadding="1" cellspacing="0">
+        <tr> 
+            <td> <p class="font-title"> PROGRAMS  </p> </td></tr>
+            <tr> <td><a href="programs.html"> <p class="font2"> GOVERNANCE  </p> </a> </td></tr>
+            <tr> <td><a href="programs2.html"> <p class="font2"> HEALTH </p></a></td>  </tr>
+            <tr> <td><a href="programs3.html"> <p class="font2"> AGRICULTURE </p> </a></td>  </tr>
+            <tr> <td><a href="programs4.html"> <p class="font2"> SOCIAL INCLUSION AND EQUITY  </p> </a></td>  </tr>
+            <tr> <td><a href="programs5.html"> <p class="font2"> ACTIVE CITIZENSHIP </p> </a></td>
+            <tr> <td><a href="programs6.html"> <p class="font2"> EDUCATION </p></a></td>  </tr>
+            <tr> <td><a href="programs7.html"> <p class="font2"> ECONOMIC EMPOWERMENT </p> </a></td>  </tr>
+            <tr> <td><a href="programs8.html"> <p class="font2"> ENVIRONMENT  </p> </a></td>  </tr>
+            <tr> <td><a href="programs9.html"> <p class="font2"> GLOBAL MOBILITY </p> </a></td>
+            <tr> <td><a href="programs10.html"> <p class="font1"> PEACEBUILDING AND SECURITY </p> </a></td> 
+          </tr>
+
+
+    </table>
+    </div>
+
+
+    <div class="main-content">
+
+        <p class="missiontitle"> PEACEBUILDING AND SECURITY </p>
+
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p><br><br>
+    
+    
+
+        <div class="img-container">
+            <img src="ann4.jpg" alt="Member 2" class="img-1">
+            <div class="img-title">
+                <h2 class="img-subtitle">SK SANTOLAN</h2>
+                <p class="img-desc">SK Santolan and Barangay Santolan Council</p>
+                  </div>
+        </div> 
+    
+
+       
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <p class="missiondesc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p><br><br>
+    
+    
+    </div>
+
+</body>
+</html>

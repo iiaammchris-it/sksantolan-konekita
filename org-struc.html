@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAMS</title>
+
+    <style>
+        body {
+      margin: 0;
+      font-family: 'Nunito-Bold', sans-serif;
+      background-image: url('blur.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Added box shadow for better visibility */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .logo-holder {
+      max-width: 120px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a,
+    .dropbtn {
+      display: block;
+      color: #324163;
+      text-align: center;
+      padding: 15px;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .dropbtn:hover {
+      background-color: #B1B9C2;
+      border-radius: 5px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      display: block;
+      text-align: left;
+      color: #324163;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #B1B9C2;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+    .burger div {
+      width: 30px;
+      height: 3px;
+      background-color: #324163;
+      margin: 3px 0;
+    }
+
+    @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .logo-holder {
+    margin: 10px auto;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a, .dropbtn {
+    text-align: left;
+    padding: 15px 20px;
+    width: 100%;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+}
+
+
+        .structure-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .structure-container h2 {
+            text-align: center;
+            color: #2e3a59;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .org-section {
+            margin-bottom: 40px;
+        }
+
+        .org-section h3 {
+            color: #324163;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-left: 5px solid #6a5acd;
+            padding-left: 10px;
+        }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .org-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight {
+            background-color: #e6e0ff;
+            border: 2px solid #6a5acd;
+        }
+
+        .org-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #ddd;
+        }
+
+        .org-card h4 {
+            margin: 10px 0 5px;
+            font-size: 16px;
+            color: #2e3a59;
+        }
+
+        .org-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+  <header>
+    <img src="web-logo-skonnect.png" alt="Logo" class="logo-holder">
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="cover.html">HOME</a></li>
+        <li><a href="login.html">LOGIN</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">JOBS</a>
+          <div class="dropdown-content">
+            <a href="class1.html">Skilled Trades and Technical Work</a>
+            <a href="class1.html">Household Services</a>
+            <a href="class1.html">Beauty and Wellness</a>
+            <a href="class1.html">Creativity and Digital Work</a>
+            <a href="class1.html">Tech and Online Services</a>
+            <a href="class1.html">Tutoring and Education</a>
+            <a href="class1.html">Transportation and Delivery</a>
+            <a href="class1.html">Miscellaneous Services</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">RESOURCES</a>
+          <div class="dropdown-content">
+            <a href="class1.html">SK ACCOMPLISHMENTS</a>
+            <a href="class1.html">OPPORTUNITIES</a>
+            <a href="class1.html">PROCUREMENT SECTION</a>
+            <a href="class1.html">CITIZEN'S CHARTER</a>
+            <a href="class1.html">SK POLICY RESOLUTIONS</a>
+            <a href="class1.html">DOWNLOADABLES</a>
+            <a href="class1.html">SK SYSTEMS OR FORMS</a>
+            <a href="class1.html">TRANSPARENCY BOARD</a>
+          </div>
+        </li>
+        <li><a href="job-opportunities.html">JOB OPPORTUNITIES</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">ABOUT US</a>
+          <div class="dropdown-content">
+            <a href="organization.html">SK OFFICIALS</a>
+            <a href="org-struc.html">ORGANIZATIONAL STRUCTURE</a>
+            <a href="aboutus3.html">MISSION, VISION, AND CORE VALUES</a>
+            <a href="aboutus4.html">HISTORY OF SK</a>
+          </div>
+        </li>
+        
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.classList.toggle('active');
+    }
+
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const parentLi = event.target.closest('li');
+      parentLi.classList.toggle('open');
+    }
+
+
+  </script>
+  <section class="structure-container">
+    <h2>Organizational Structure</h2>
+
+    <div class="org-section">
+      <h3>SK Council</h3>
+      <div class="org-grid">
+        <div class="org-card highlight">
+          <img src="chairman.jpg" alt="SK Chairperson">
+          <h4>Chairperson Name</h4>
+          <p>Chairperson</p>
+        </div>
+        <!-- 9 Councilors -->
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Councilor Name</h4>
+          <p>Councilor</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-section">
+      <h3>SK Executive Committee</h3>
+      <div class="org-grid">
+        <div class="org-card">
+          <img src="intan.jpg" alt="Secretary">
+          <h4>Execcom Name</h4>
+          <p>Secretary</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Treasurer">
+          <h4>Execcom Name</h4>
+          <p>Treasurer</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Auditor">
+          <h4>Execcom Name</h4>
+          <p>Auditor</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="PIO">
+          <h4>Execcom Name</h4>
+          <p>Public Information Officer</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-section">
+      <h3>Advisers</h3>
+      <div class="org-grid">
+        <div class="org-card">
+          <img src="intan.jpg" alt="Adviser">
+          <h4>Adviser Name</h4>
+          <p>Barangay Captain</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Adviser">
+          <h4>Adviser Name</h4>
+          <p>Youth Adviser</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Adviser">
+          <h4>Adviser Name</h4>
+          <p>Barangay Secretary</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Adviser">
+          <h4>Adviser Name</h4>
+          <p>Legal Adviser</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-section">
+      <h3>Social Media Team</h3>
+      <div class="org-grid">
+        <div class="org-card">
+          <img src="intan.jpg" alt="Social Media Head">
+          <h4>Social Media Head</h4>
+          <p>Content Strategist</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Social Media Member">
+          <h4>Social Media Member</h4>
+          <p>Graphics Designer</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Social Media Member">
+          <h4>Social Media Member</h4>
+          <p>Community Manager</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-section">
+      <h3>IT Officers</h3>
+      <div class="org-grid">
+        <div class="org-card">
+          <img src="neil.jpg" alt="IT Officer">
+          <h4>IT Officer</h4>
+          <p>Web Developer</p>
+        </div>
+        <div class="org-card">
+          <img src="rovin.jpeg" alt="IT Officer">
+          <h4>IT Officer</h4>
+          <p>System Analyst</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
