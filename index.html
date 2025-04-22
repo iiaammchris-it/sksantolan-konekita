@@ -493,8 +493,6 @@
       <h2 style="color:#2cae61;">JOB OPPORTUNITIES</h2>
       <p>Discover job opportunities around Santolan and get hired quickly through our community-driven platform!</p>
       
- <div id="searchResultsContainer"></div> <!-- This will hold the results dynamically -->
-
     <div class="carousel">
         <div class="carousel-images">
           <img src="422-1.jpg"><img src="422-2.jpg"><img src="422-3.jpg"><img src="422-4.jpg">
@@ -1182,37 +1180,6 @@
         });
       });
     });
-
-    function searchJobseekers() {
-  const keyword = document.getElementById('searchInput').value.toLowerCase();
-  const outputDiv = document.getElementById('right-panel');
-
-  fetch('jobseekers.json') // Ensure this file exists in the correct path
-    .then(response => response.json())
-    .then(data => {
-      const results = data.filter(person =>
-        person.name.toLowerCase().includes(keyword) ||
-        person.skill.toLowerCase().includes(keyword) ||
-        person.location.toLowerCase().includes(keyword)
-      );
-
-      outputDiv.innerHTML = results.length
-        ? results.map(p => `
-            <div class="job-card">
-              <h4>${p.name}</h4>
-              <p><strong>Skill:</strong> ${p.skill}</p>
-              <p><strong>Location:</strong> ${p.location}</p>
-            </div>
-          `).join('')
-        : '<p>No jobseekers found.</p>';
-    })
-    .catch(error => {
-      outputDiv.innerHTML = '<p>Error loading jobseekers.</p>';
-      console.error('Error fetching jobseeker data:', error);
-    });
-}
-
-document.getElementById('searchButton').addEventListener('click', searchJobseekers);
   </script>
 </body>
 </html>
