@@ -516,7 +516,87 @@
   border-radius: 5px;
 }
     
+ .carousel {
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
+    .carousel img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .carousel-description {
+      background: #fff;
+      margin-top: 15px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .carousel-images {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-images img {
+      flex: 0 0 auto;
+      width: calc(33.333% - 10px);
+      border-radius: 10px;
+      scroll-snap-align: start;
+    }
+
+    @media (max-width: 900px) {
+      .left-panel {
+        display: none;
+      }
+      .right-panel {
+        width: 100%;
+      }
+
+      .carousel-images img {
+        width: 100%;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro, .job-card, .carousel {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    .intro { animation-delay: 0.2s; }
+    .job-card:nth-child(2) { animation-delay: 0.4s; }
+    .job-card:nth-child(3) { animation-delay: 0.6s; }
+    .carousel { animation-delay: 0.8s; }
+
+    .carousel-description {
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    .description-wrapper {
+      max-height: 200px;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .description-wrapper.expanded {
+      max-height: 2000px;
+    }
+
+    .description-text {
+      white-space: pre-wrap;
+      font-family: inherit;
+      margin: 0;
+    }
 
   </style>
 </head>
@@ -579,6 +659,37 @@
       
 
         <p class="jobtitle"> Skilled Trades and Technical Work </p>
+
+      <div class="carousel">
+        <div class="carousel-images">
+          <img src="intan.jgp">
+        </div>
+        <div class="carousel-description">
+          <h2 style="color:#2cae61;">Urgent: Plumbing Services</h2>
+        
+          <div class="description-toggle-group">
+            <div class="description-wrapper">
+              <pre class="description-text">
+         <div class="jobseekers-list">
+          <div class="profile-vertical">
+            <img src="intan.jpg" alt="Christian Dalisay">
+            <div class="profile-details">
+              <h3>Christian Dalisay</h3>
+              <p class="job-title">Bumbero</p>
+              <p class="rate">₱500/hour</p>
+              <p class="description">Experienced firefighter with extensive training in emergency response and safety management.</p>
+              <a href="profile-christian.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+     
+              </pre>
+            </div>
+            <button class="toggle-button">See More</button>
+          </div>
+        </div>
+        
+      </div>
+      
 
         <div class="jobseekers-list">
           <div class="profile-vertical">
@@ -695,5 +806,6 @@
       });
     });
   </script>
+      
 </body>
 </html>
