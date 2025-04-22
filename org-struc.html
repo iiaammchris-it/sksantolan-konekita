@@ -35,11 +35,13 @@
     .logo-holder {
       max-width: 120px;
       height: auto;
+        flex-shrink: 0; 
     }
 
     nav {
       display: flex;
       align-items: center;
+        flex-wrap: wrap;
     }
 
     .nav-links {
@@ -48,6 +50,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Montserrat', sans-serif;
+        overflow: hidden;
     }
 
     .nav-links li {
