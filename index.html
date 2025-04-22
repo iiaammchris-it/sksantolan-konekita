@@ -405,6 +405,25 @@
   }
 }
 
+    .search-box {
+  margin: 20px 0;
+}
+
+.search-box input {
+  padding: 8px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-box button {
+  padding: 8px 12px;
+  background-color: #32d052;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
   </style>
 </head>
@@ -443,6 +462,11 @@
         <h1 style="color:#2cae61;">WELCOME TO KONEKITA PORTAL!</h1>
         <p>Discover job opportunities around Santolan and get hired quickly through our community-driven platform!</p>
       </div>
+      <h2>Welcome to Konekita Portal</h2>
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Hanap ng Trabahador...">
+  <button onclick="searchJobseekers()">Search</button>
+</div>
       <div class="latest-jobs">
         <h3 style="color:#2cae61;">Latest Jobs</h3>
         <div class="job-card"><img src="jo1.1.jpg" alt="Job Image" /><p><strong>Electrician Needed</strong><br>Barangay Santolan</p></div>
@@ -1147,6 +1171,35 @@
         });
       });
     });
+
+    function searchJobseekers() {
+  const keyword = document.getElementById('searchInput').value.toLowerCase();
+  const outputDiv = document.getElementById('right-panel'); // Make sure this ID matches your right panel
+
+  fetch('jobseekers.json') // Adjust this path if needed
+    .then(response => response.json())
+    .then(data => {
+      const results = data.filter(person => 
+        person.name.toLowerCase().includes(keyword) ||
+        person.skill.toLowerCase().includes(keyword) ||
+        person.location.toLowerCase().includes(keyword)
+      );
+
+      outputDiv.innerHTML = results.length
+        ? results.map(p => `
+            <div class="job-card">
+              <h4>${p.name}</h4>
+              <p><strong>Skill:</strong> ${p.skill}</p>
+              <p><strong>Location:</strong> ${p.location}</p>
+            </div>
+          `).join('')
+        : '<p>No jobseekers found.</p>';
+    })
+    .catch(error => {
+      outputDiv.innerHTML = '<p>Error loading jobseekers.</p>';
+      console.error('Error fetching jobseeker data:', error);
+    });
+}
   </script>
 </body>
 </html>
