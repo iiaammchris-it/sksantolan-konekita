@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROGRAMS</title>
+  <link rel="icon" type="image/png" href="sklogo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PROGRAMS</title>
+  <style>
+    @font-face {
+      font-family: 'Nunito-Bold';
+      src: url('fonts/Nunito-Bold.ttf') format('truetype');
+    }
 
-    <style>
-        @font-face {
-        font-family: 'Nunito-Bold';
-        src: url('fonts/Nunito-Bold.ttf') format('truetype');
-        }
-
-        body {
+    body {
       margin: 0;
-      font-family: 'Nunito-Bold', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-image: url('blur.png');
       background-size: cover;
       background-repeat: no-repeat;
@@ -21,19 +21,35 @@
     }
 
     header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  padding: 10px 20px;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  /* Added box shadow for better visibility */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px 20px;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .member-card {
+    background-color: none;
+    overflow: hidden;
+    margin: 2% auto;
+    max-width: 90vw; /* limits width relative to viewport */
+    width: 100%;
+    border-radius: 10px; /* optional rounding */
 }
+
+.member-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* ensures proper scaling */
+}
+
 
     .logo-holder {
       max-width: 120px;
@@ -50,7 +66,6 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      font-family: 'Montserrat', sans-serif;
     }
 
     .nav-links li {
@@ -99,11 +114,11 @@
     }
 
     .burger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  margin-left: auto;
-}
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+    }
 
     .burger div {
       width: 30px;
@@ -113,63 +128,211 @@
     }
 
     @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: white;
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a, .dropbtn {
+        text-align: left;
+        padding: 15px 20px;
+        width: 100%;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .left-panel {
+      width: 30%;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: white;
+      border-right: 1px solid #ddd;
+    }
+
+    .left-panel .intro {
+      margin-bottom: 40px;
+    }
+
+    .left-panel .latest-jobs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .left-panel .job-card {
+      background: rgba(50, 208, 82, 0.2);
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .job-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+
+    }
+
+   
+
+    @media (max-width: 900px) {
+      .left-panel {
+        display: none;
+      }
+      .right-panel {
+        width: 100%;
+      }
+
+      .carousel-images img {
+        width: 100%;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro, .job-card, .carousel {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    .intro { animation-delay: 0.2s; }
+    .job-card:nth-child(2) { animation-delay: 0.4s; }
+    .job-card:nth-child(3) { animation-delay: 0.6s; }
+    .carousel { animation-delay: 0.8s; }
+
+ 
+
+    .toggle-button {
+      background-color: #2cae61;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-button:hover {
+      background-color: #43b471;
+    }
+
+    .browse-button {
+      background-color: #2cae61;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.3s ease;
+    }
+
+    .browse-button:hover {
+      background-color: #43b471;
+    }
+
+
+   
+    .browse-more {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .browse-more a {
+      background-color: #324163;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    @media (max-width: 500px) {
+  .profile-card {
+    width: 180px;
+    padding: 10px;
   }
 
-  .logo-holder {
-    margin: 10px auto;
-  }
-
-  .burger {
-    display: flex;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: white;
-    width: 100%;
-    padding: 10px 0;
-    
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    padding-left: 0;
-  }
-
-  .nav-links li {
-    width: 100%;
-  }
-
-  .nav-links a, .dropbtn {
-    text-align: left;
-    padding: 15px 20px;
-    width: 100%;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: relative;
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .dropdown.open .dropdown-content {
-    display: block;
+  .img-title h2 {
+    font-size: 1.2em;
   }
 }
 
-    .member-card {
+    .search-box {
+  margin: 20px 0;
+}
+
+.search-box input {
+  padding: 8px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-box button {
+  padding: 8px 12px;
+  background-color: #32d052;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.member-card {
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -369,63 +532,64 @@
 }
     
 
-    </style>
 
+  </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo" class="logo-holder">
-        <div class="burger" onclick="toggleMenu()">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <nav id="nav-menu">
-          <ul class="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="login.html">LOGIN</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropbtn">JOBS</a>
-              <div class="dropdown-content">
-                <a href="sk-accomplishments.html">SK ACCOMPLISHMENTS</a>
-                <a href="resources2.html">OPPORTUNITIES</a>
-                <a href="resources3.html">PROCUREMENT SECTION</a>
-                <a href="resources4.html">CITIZEN'S CHARTER</a>
-                <a href="resources5.html">SK POLICY RESOLUTIONS</a>
-                <a href="resources6.html">DOWNLOADABLES</a>
-                <a href="resources7.html">SK SYSTEMS OR FORMS</a>
-                <a href="resources8.html">TRANSPARENCY BOARD</a>
-              </div>
-            </li>
-            <li><a href="job-opportunities.html">JOB OPPORTUNITIES</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropbtn">ABOUT US</a>
-              <div class="dropdown-content">
-                <a href="organization.html">SK OFFICIALS</a>
-                <a href="aboutus2.html">ORGANIZATIONAL STRUCTURE</a>
-                <a href="aboutus3.html">MISSION, VISION, AND CORE VALUES</a>
-                <a href="aboutus4.html">HISTORY OF SK</a>
-              </div>
-            </li>
-            
-            <li><a href="contacts.html">CONTACT US</a></li>
-          </ul>
-        </nav>
-      </header>
-    
-      <script>
-        function toggleMenu() {
-          const navMenu = document.getElementById('nav-menu');
-          navMenu.classList.toggle('active');
-        }
-    
-        function toggleDropdown(event) {
-          event.preventDefault();
-          const parentLi = event.target.closest('li');
-          parentLi.classList.toggle('open');
-        }
-      </script>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo-holder">
+    <div class="burger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">JOBS</a>
+          <div class="dropdown-content">
+            <a href="class1.html">Skilled Trades and Technical Work</a>
+            <a href="class1.html">Household Services</a>
+            <a href="class1.html">Beauty and Wellness</a>
+            <a href="class1.html">Creativity and Digital Work</a>
+            <a href="class1.html">Tech and Online Services</a>
+            <a href="class1.html">Tutoring and Education</a>
+            <a href="class1.html">Transportation and Delivery</a>
+            <a href="class1.html">Miscellaneous Services</a>
+          </div>
+        </li>
+          <a href="org-struc.html" class="dropbtn">ABOUT US</a>
+        </li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <div class="container">
+    <div class="left-panel">
+      <div class="intro">
+        <h1 style="color:#2cae61;">WELCOME TO KONEKITA PORTAL!</h1>
+        <p>Discover job opportunities around Santolan and get hired quickly through our community-driven platform!</p>
+      </div>
+      <h2>Welcome to Konekita Portal</h2>
+<div class="search-box">
+  <button onclick="searchJobseekers()">LF TRABAHADOR!</button>
+</div>
+      <div class="latest-jobs">
+        <h3 style="color:#2cae61;">Latest Jobs</h3>
+        <div class="job-card"><img src="jo1.1.jpg" alt="Job Image" /><p><strong>Electrician Needed</strong><br>Barangay Santolan</p></div>
+        <div class="job-card"><img src="jo1.2.jpg" alt="Job Image" /><p><strong>House Painter</strong><br>Available ASAP</p></div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+    
+      <div class="member-card">
+        <img src="konekitaheader-sample.png" alt="Member 2" class="member-image">
+    </div>
+
+      <h2 style="color:#2cae61;">JOB OPPORTUNITIES</h2>
+      <p>Discover job opportunities around Santolan and get hired quickly through our community-driven platform!</p>
+      
 
     <div class="main-content">
 
@@ -535,6 +699,20 @@
   </div>
 
 
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
 
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const wrapper = button.closest('.carousel-description').querySelector('.description-wrapper');
+          wrapper.classList.toggle('expanded');
+          button.textContent = wrapper.classList.contains('expanded') ? 'See Less' : 'See More';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
