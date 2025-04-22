@@ -1,0 +1,12 @@
+[
+    {
+      "name": "Juan Dela Cruz",
+      "skill": "Electrician",
+      "location": "Quezon City"
+    },
+    {
+      "name": "Ana Santos",
+      "skill": "Web Developer",
+      "location": "Makati"
+    }
+  ]
