@@ -493,13 +493,10 @@
 
   <div class="container">
     <div class="left-panel">
-      <div id="timestamp"></div>
       <div class="intro">
         <h1 style="color:#2cae61;">WELCOME TO KONEKITA PORTAL!</h1>
         <p>Discover job opportunities around Santolan and get hired quickly through our community-driven platform!</p>
       </div>
-      <h2>Welcome to Konekita Portal</h2>
-
       <div class="latest-jobs">
         <h3 style="color:#2cae61;">Latest Jobs</h3>
         <div class="job-card"><img src="jo1.1.jpg" alt="Job Image" /><p><strong>Electrician Needed</strong><br>Barangay Santolan</p></div>
@@ -508,9 +505,7 @@
     </div>
 
     <div class="right-panel">
-      
-
-    
+      <div id="timestamp"></div>
       <div class="member-card">
         <img src="konekitaheader-sample.png" alt="Member 2" class="member-image">
     </div>
@@ -1205,6 +1200,30 @@
         });
       });
     });
+
+    function updateTimestamp() {
+        const now = new Date();
+        const options = {
+          weekday: 'short', year: 'numeric', month: 'short',
+          day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: true
+        };
+        const formattedTime = now.toLocaleString('en-US', options);
+        const timestampEl = document.getElementById('timestamp');
+        if (timestampEl) {
+          timestampEl.textContent = `🕒 ${formattedTime}`;
+        }
+      }
+    
+      // Initial load
+      updateTimestamp();
+      // Update every second
+      setInterval(updateTimestamp, 1000);
   </script>
+  
+
+
+
+  
 </body>
 </html>
