@@ -204,12 +204,11 @@
       width: 30%;
       padding: 20px;
       position: sticky;
-      top: 0;
-      height: 100vh;
+      top: 100px; /* <-- adjust this based on your header height */
+      height: calc(100vh - 100px); /* <-- also account for header height */
       overflow-y: auto;
       background-color: white;
       border-right: 1px solid #ddd;
-      max-height: calc(100vh - 100px);
     }
 
     .left-panel .intro {
