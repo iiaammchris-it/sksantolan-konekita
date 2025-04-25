@@ -2,99 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Job Seeker Profile</title>
+  <title>Job Seeker Profile - Intan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #43b471;
       --secondary: #2cae61;
-      --bg: #f4fdf7;
+      --bg: #f5fdf8;
       --text: #333;
-      --card-bg: #fff;
+      --card-bg: #ffffff;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      margin: 0;
-      padding: 20px;
+      padding: 30px 20px;
     }
 
     .profile-container {
-      max-width: 960px;
+      max-width: 1000px;
       margin: auto;
       background: var(--card-bg);
-      padding: 30px;
+      padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .profile-container:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .profile-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .profile-picture {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--primary);
       margin-bottom: 15px;
+      transition: var(--transition);
     }
 
-    h2 {
-      color: var(--primary);
+    .profile-picture:hover {
+      transform: scale(1.05);
+      border-color: var(--secondary);
+    }
+
+    h1 {
       font-size: 26px;
-      margin: 10px 0 5px;
+      font-weight: 600;
+      color: var(--primary);
     }
 
     .status {
-      font-weight: 500;
-      color: var(--secondary);
       font-size: 16px;
+      color: var(--secondary);
+      margin-top: 4px;
     }
 
-    .profile-section {
-      margin-bottom: 25px;
+    .section {
+      margin-bottom: 30px;
+      animation: fadeIn 0.6s ease-in-out;
     }
 
-    .profile-section h3 {
+    .section h2 {
+      font-size: 18px;
+      font-weight: 600;
       color: var(--primary);
       margin-bottom: 10px;
-      font-size: 20px;
-      border-bottom: 2px solid #e0f2e9;
+      border-bottom: 2px solid #e4f5ea;
       padding-bottom: 5px;
     }
 
-    .profile-info p {
+    .info p {
       margin: 6px 0;
       line-height: 1.6;
+      font-size: 15px;
     }
 
     .download-link {
       display: inline-block;
-      color: var(--secondary);
-      text-decoration: none;
+      margin-top: 8px;
       font-weight: 500;
-      margin-top: 6px;
+      color: var(--secondary);
       border: 1px solid var(--secondary);
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s, color 0.3s;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: var(--transition);
     }
 
     .download-link:hover {
-      background-color: var(--secondary);
-      color: white;
+      background: var(--secondary);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(44, 174, 97, 0.2);
     }
 
     .id-image {
+      max-width: 400px;
       width: 100%;
-      max-width: 350px;
       border-radius: 12px;
-      margin-top: 10px;
       border: 2px solid #eee;
+      margin-top: 10px;
+      transition: var(--transition);
+    }
+
+    .id-image:hover {
+      transform: scale(1.02);
+      border-color: var(--primary);
     }
 
     @media (max-width: 600px) {
@@ -103,12 +144,12 @@
         height: 100px;
       }
 
-      h2 {
+      h1 {
         font-size: 22px;
       }
 
-      .profile-section h3 {
-        font-size: 18px;
+      .section h2 {
+        font-size: 16px;
       }
     }
   </style>
@@ -116,75 +157,75 @@
 <body>
   <div class="profile-container">
     <div class="profile-header">
-      <img src="id-picture.jpg" alt="ID Picture" class="profile-picture">
-      <h2>Juan Dela Cruz</h2>
-      <div class="status">Electrician • Available</div>
+      <img src="intan.jpg" alt="Intan Profile Picture" class="profile-picture">
+      <h1>Intan Dela Cruz</h1>
+      <div class="status">Job Position: Architect • Status: Available</div>
     </div>
 
-    <div class="profile-section">
-      <h3>Basic Information</h3>
-      <div class="profile-info">
-        <p><strong>Full Name:</strong> Dela Cruz, Juan, Santos</p>
-        <p><strong>Age:</strong> 34</p>
-        <p><strong>Gender:</strong> Male</p>
-        <p><strong>Affiliation:</strong> Santolan Labor Union</p>
+    <div class="section">
+      <h2>Basic Information</h2>
+      <div class="info">
+        <p><strong>Full Name:</strong> Dela Cruz, Intan, Santos</p>
+        <p><strong>Age:</strong> 29</p>
+        <p><strong>Gender:</strong> Female</p>
+        <p><strong>Affiliation:</strong> Santolan Freelancers Network</p>
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>Contact Information</h3>
-      <div class="profile-info">
-        <p><strong>Phone Number:</strong> 0917-123-4567</p>
-        <p><strong>Email:</strong> juandelacruz@email.com</p>
-        <p><strong>Complete Address:</strong> 123 Santolan St., Pasig City</p>
+    <div class="section">
+      <h2>Contact Information</h2>
+      <div class="info">
+        <p><strong>Phone Number:</strong> 0917-987-6543</p>
+        <p><strong>Email:</strong> intan.dc@email.com</p>
+        <p><strong>Complete Address:</strong> 456 Mabuhay St., Santolan, Pasig City</p>
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>Skills & Expertise</h3>
-      <div class="profile-info">
-        <p>Electrical wiring, appliance repair, solar panel installation</p>
+    <div class="section">
+      <h2>Skills & Expertise</h2>
+      <div class="info">
+        <p>3D Rendering, AutoCAD, Interior Design, Urban Planning</p>
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>Work Experience</h3>
-      <div class="profile-info">
-        <p>5 years as residential electrician, 2 years in commercial installations</p>
+    <div class="section">
+      <h2>Work Experience</h2>
+      <div class="info">
+        <p>4 years in residential and commercial design, freelance consultant for 2 years</p>
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>Certification</h3>
-      <div class="profile-info">
+    <div class="section">
+      <h2>Certification</h2>
+      <div class="info">
         <a href="certification.pdf" class="download-link" download>Download Certification</a>
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>Availability</h3>
-      <div class="profile-info">
-        <p>Weekdays and Saturdays, 8AM – 5PM</p>
+    <div class="section">
+      <h2>Availability</h2>
+      <div class="info">
+        <p>Monday – Friday, 9:00 AM – 6:00 PM</p>
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>References</h3>
-      <div class="profile-info">
-        <p>Engr. Pedro Lopez – 0918-765-4321</p>
+    <div class="section">
+      <h2>References</h2>
+      <div class="info">
+        <p>Engr. Maria Ramos – 0923-456-7890</p>
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>Valid ID with Address</h3>
-      <div class="profile-info">
+    <div class="section">
+      <h2>Valid ID with Address</h2>
+      <div class="info">
         <img src="valid-id.jpg" alt="Valid ID" class="id-image">
       </div>
     </div>
 
-    <div class="profile-section">
-      <h3>Portfolio</h3>
-      <div class="profile-info">
+    <div class="section">
+      <h2>Portfolio</h2>
+      <div class="info">
         <a href="portfolio.zip" class="download-link" download>Download Portfolio</a>
       </div>
     </div>
