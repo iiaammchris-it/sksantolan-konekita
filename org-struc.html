@@ -110,6 +110,15 @@
       display: block;
     }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: static; /* Important */
+  overflow: visible; /* Allow dropdown to overflow */
+}
+        
     .burger {
   display: none;
   flex-direction: column;
