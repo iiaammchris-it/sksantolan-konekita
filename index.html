@@ -117,24 +117,37 @@ background-color: #2cae61;  /* Highlight color */
   background-color: #636be3; /* Slightly darker on hover */
 }
 
-    .reg-btn {
-display: inline-block;
-  background-color: #2cae61; /* fresh green */
-  color: white !important;
+ .reg-btn {
+  display: inline-block;
+  color: #2cae61; /* fresh green for text */
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none; /* removes underline */
   padding: 12px 24px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(44, 174, 97, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  border-radius: 5px; /* Rounded corners for a sleek look */
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.reg-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #2cae61; /* underline color */
+  transition: width 0.3s ease; /* smooth underline animation */
 }
 
 .reg-btn:hover {
-   background-color: #249653;
-  box-shadow: 0 6px 16px rgba(44, 174, 97, 0.4);
-  transform: translateY(-2px);
+  color: #249653; /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.reg-btn:hover::after {
+  width: 100%; /* Underline grows to full width */
 }
 
     .dropdown-content {
