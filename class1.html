@@ -596,6 +596,13 @@
       margin: 0;
     }
 
+      #timestamp {
+  margin-left: 40px auto;
+  font-size: 14px;
+  color: #333;
+  padding: 10px;
+}
+    
   </style>
 </head>
 <body>
@@ -646,6 +653,7 @@
 
     <div class="right-panel">
     
+      <div id="timestamp"></div>
       <div class="member-card">
         <img src="konekita-header-logo.png" alt="Member 2" class="member-image">
     </div>
@@ -768,6 +776,25 @@
         });
       });
     });
+
+     function updateTimestamp() {
+        const now = new Date();
+        const options = {
+          weekday: 'short', year: 'numeric', month: 'short',
+          day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: true
+        };
+        const formattedTime = now.toLocaleString('en-US', options);
+        const timestampEl = document.getElementById('timestamp');
+        if (timestampEl) {
+          timestampEl.textContent = `🕒 ${formattedTime}`;
+        }
+      }
+    
+      // Initial load
+      updateTimestamp();
+      // Update every second
+      setInterval(updateTimestamp, 1000);
   </script>
       
 </body>
