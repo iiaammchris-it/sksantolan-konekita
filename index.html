@@ -117,6 +117,26 @@ background-color: #2cae61;  /* Highlight color */
   background-color: #636be3; /* Slightly darker on hover */
 }
 
+    .reg-btn {
+display: inline-block;
+  background-color: #2cae61; /* fresh green */
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none; /* removes underline */
+  padding: 12px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(44, 174, 97, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.reg-btn:hover {
+   background-color: #249653;
+  box-shadow: 0 6px 16px rgba(44, 174, 97, 0.4);
+  transform: translateY(-2px);
+}
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -521,7 +541,7 @@ background-color: #2cae61;  /* Highlight color */
       <div id="timestamp"></div>
       <div class="member-card">
         <img src="konekita-header-logo.png" alt="Member 2" class="member-image">
-         <a href="https://bit.ly/KoneKitaRegistration" class="primary-nav">REGISTER HERE!</a>
+         <a href="https://bit.ly/KoneKitaRegistration" class="reg-btn">REGISTER HERE!</a>
     </div>
       
       <h2 style="color:#2cae61;">JOB OPPORTUNITIES</h2>
