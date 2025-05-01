@@ -87,22 +87,39 @@
     .nav-links li {
       position: relative;
     }
+   .nav-links a,
+.dropbtn {
+  position: relative;
+  display: inline-block;
+  color: #324163;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
-    .nav-links a,
-    .dropbtn {
-      display: block;
-      color: #324163;
-      text-align: center;
-      padding: 15px;
-      text-decoration: none;
-      position: relative;
-    }
+    .nav-links a::after,
+.dropbtn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px; /* Adjust for spacing below text */
+  width: 0%;
+  height: 2px;
+  background-color: #4CAF50; /* Green underline */
+  transition: width 0.3s ease;
+}
 
     .nav-links a:hover,
-    .dropbtn:hover {
-      background-color: #B1B9C2;
-      border-radius: 5px;
-    }
+.dropbtn:hover {
+  color: #4CAF50; /* Optional: change text color on hover */
+}
+
+     .nav-links a:hover::after,
+.dropbtn:hover::after {
+  width: 100%;
+}
 
     .primary-nav {
 background-color: #2cae61;  /* Highlight color */
@@ -110,10 +127,6 @@ background-color: #2cae61;  /* Highlight color */
   font-weight: bold;
   border-radius: 5px;
   box-shadow: 0 0 8px rgba(124, 131, 246, 0.5);
-}
-
-.primary-nav:hover {
-  background-color: #636be3; /* Slightly darker on hover */
 }
 
  .reg-btn {
@@ -524,9 +537,9 @@ background-color: #2cae61;  /* Highlight color */
     </div>
     <nav id="nav-menu">
       <ul class="nav-links">
-        <li><a href="index.html">HOME</a></li>
+        <li><a href="index.html"  class="primary-nav">HOME</a></li>
         <li class="dropdown">
-          <a href="#" class="primary-nav">SERVICES</a>
+          <a href="#">SERVICES</a>
           <div class="dropdown-content">
             <a href="class1.html">Skilled Trades and Technical Work</a>
             <a href="class1.html">Household Services</a>
