@@ -119,19 +119,23 @@
     }
 
     @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-  }
+ header {
+         width: 100%;
+        display: flex;
+        justify-content: space-between; /* Adjusts spacing between logo and burger */
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px 20px; /* Add padding instead of margin-left on burger */
+      }
 
   .logo-holder {
     margin: 10px auto;
   }
 
   .burger {
-    display: flex;
-  }
+        display: flex;
+        margin-left: 0;
+      }
 
   nav {
     display: none;
