@@ -122,13 +122,18 @@
 }
 
     .primary-nav {
-content: "";
+  position: relative;
+  color: #4CAF50; /* Optional: highlight the active link's text */
+}
+
+.primary-nav::after {
+  content: "";
   position: absolute;
   left: 0;
-  bottom: 8px; /* Adjust for spacing below text */
-  width: 0%;
+  bottom: 8px;
+  width: 100%;
   height: 2px;
-  background-color: #4CAF50; /* Green underline */
+  background-color: #4CAF50;
 }
 
  .reg-btn {
