@@ -448,30 +448,41 @@
   margin-right: 8px;
   color: #555; /* Adjust color if needed */
 }
+         
+.breadcrumb-container {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.85); /* Light background with transparency */
+  position: relative;
+  z-index: 10;
+}
 
 .breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  margin: 20px;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.8);
-  display: inline-block;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: #333;
 }
 
 .breadcrumb a {
   text-decoration: none;
-  color: #6c5ce7; /* Your brand color */
-  margin-right: 5px;
+  color: #6c5ce7; /* Brand color */
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #4834d4;
 }
 
 .breadcrumb .current {
-  font-weight: bold;
+  font-weight: 600;
   color: #2d3436;
 }
-
-
 
     </style>
 </head>
