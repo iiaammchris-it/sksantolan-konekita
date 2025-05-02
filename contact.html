@@ -321,6 +321,28 @@ html, body {
     align-items: center;
   }
 }
+
+ .social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Makes icons white */
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+   
     </style>
 </head>
 <body>
@@ -409,12 +431,20 @@ html, body {
   updateTimestamp();
   setInterval(updateTimestamp, 1000);
 </script>
-
-     <footer class="footer">
+     
+<footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
       <h2>Konekita</h2>
       <p>Connecting skilled workers in Santolan to job opportunities and consultations.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+          <img src="facebook-icon.svg" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/YourProfile" target="_blank" aria-label="Instagram">
+          <img src="instagram-icon.svg" alt="Instagram" />
+        </a>
+      </div>
     </div>
     <div class="footer-links">
       <h4>Quick Links</h4>
@@ -436,6 +466,6 @@ html, body {
     <p>&copy; 2025 Konekita: Santolan Labor Hub. All rights reserved.</p>
   </div>
 </footer>
-</div>
+
 </body>
 </html>
