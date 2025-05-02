@@ -449,6 +449,28 @@
   color: #555; /* Adjust color if needed */
 }
 
+.breadcrumb {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  margin: 20px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #6c5ce7; /* Your brand color */
+  margin-right: 5px;
+}
+
+.breadcrumb .current {
+  font-weight: bold;
+  color: #2d3436;
+}
+
 
 
     </style>
@@ -510,6 +532,12 @@
 
 
   </script>
+
+<nav class="breadcrumb">
+  <a href="index.html">Home</a> › 
+  <a href="services.html">Services</a> › 
+  <span class="current">Register</span>
+</nav>
      
   <section class="structure-container">
         <div class="member-card">
