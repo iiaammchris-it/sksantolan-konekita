@@ -259,6 +259,68 @@ html, body {
   border: 0;
 }
 
+         .footer {
+  background-color: #4b2e83; /* Deep purple */
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer h2,
+.footer h4 {
+  margin-bottom: 10px;
+}
+
+.footer-brand p,
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin: 5px 0;
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #d1c4e9; /* Light purple on hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  border-top: 1px solid #6a4fa3;
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
     </style>
 </head>
 <body>
@@ -356,6 +418,33 @@ html, body {
     allowfullscreen>
     Loading…
   </iframe>
+
+     <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h2>Konekita</h2>
+      <p>Connecting skilled workers in Santolan to job opportunities and consultations.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Job Listings</a></li>
+        <li><a href="#">Consultation</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>Email: konekita@santolan.org</p>
+      <p>Phone: (02) 1234-5678</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Konekita: Santolan Labor Hub. All rights reserved.</p>
+  </div>
+</footer>
 </div>
 </body>
 </html>
