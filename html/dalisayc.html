@@ -227,82 +227,44 @@ body {
   }
 }
 
-
-    .id-card-container {
+.id-3d-container {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  font-family: 'Montserrat', sans-serif;
+  gap: 40px;
   justify-content: center;
   align-items: center;
+  perspective: 1200px;
+  margin: 40px auto;
+  flex-wrap: wrap;
 }
 
 .id-card {
-  width: 600px;
-  height: 250px;
-  border-radius: 16px;
+  width: 550px;
+  height: 300px;
   background-color: white;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  padding: 20px;
   border-left: 6px solid #28a745;
   border-right: 6px solid #6f42c1;
-  padding: 20px;
-  box-sizing: border-box;
+}
+
+.id-card.front {
+  transform: rotateY(-5deg);
 }
 
 .id-card.back {
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-between;
-  padding: 30px 40px;
+  transform: rotateY(5deg);
 }
 
-.id-left {
-  flex: 0 0 25%;
+.id-header {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  border: 3px solid #28a745;
-  object-fit: cover;
-}
-
-.id-center {
-  flex: 0 0 45%;
-  padding: 0 20px;
-  color: #333;
-  font-size: 0.95rem;
-}
-
-.id-center p {
-  margin: 6px 0;
-}
-
-.id-right {
-  flex: 0 0 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.id-title {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #28a745;
-  text-align: center;
-}
-
-.logo-group {
-  display: flex;
   gap: 10px;
-  align-items: center;
+  margin-bottom: 20px;
 }
 
 .logo {
@@ -314,23 +276,62 @@ body {
   height: 30px;
 }
 
-.id-back-content .purpose h3 {
+.id-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
+}
+
+.id-left {
+  flex: 0 0 120px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  object-fit: cover;
+  border: 3px solid #28a745;
+}
+
+.id-center {
+  flex: 1;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.id-center p {
+  margin: 8px 0;
+}
+
+.back-body {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.purpose h3 {
   color: #28a745;
-  font-size: 1.1rem;
   margin-bottom: 10px;
 }
 
-.id-back-content .purpose p {
-  font-size: 0.95rem;
+.purpose p {
   color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.qr-code {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .qr-code img {
   width: 100px;
   height: 100px;
   border: 2px dashed #6f42c1;
-  border-radius: 10px;
-  margin-top: 15px;
+  padding: 10px;
+  border-radius: 12px;
 }
 
 
@@ -422,36 +423,35 @@ body {
       </div>
     </div>
   </div>
-
-<div class="id-card-container">
+  
+<div class="id-3d-container">
   <!-- FRONT SIDE -->
   <div class="id-card front">
-    <div class="id-left">
-      <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+    <div class="id-header">
+      <img src="sk-logo.png" alt="SK Logo" class="logo small-logo">
+      <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo">
     </div>
-    <div class="id-center">
-      <p><strong>Name:</strong> Juan Dela Cruz</p>
-      <p><strong>Age:</strong> 27</p>
-      <p><strong>Position:</strong> Electrician</p>
-      <p><strong>Field of Expertise:</strong> Residential Wiring</p>
-      <p><strong>Konekita ID No.:</strong> 2025-001</p>
-    </div>
-    <div class="id-right">
-      <div class="logo-group">
-        <img src="sk-logo.png" alt="SK Logo" class="logo small-logo">
-        <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo">
+    <div class="id-body">
+      <div class="id-left">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
       </div>
-      <h2 class="id-title">SK KONEKITA ID</h2>
+      <div class="id-center">
+        <p><strong>Name:</strong> Juan Dela Cruz</p>
+        <p><strong>Age:</strong> 27</p>
+        <p><strong>Position:</strong> Electrician</p>
+        <p><strong>Field of Expertise:</strong> Residential Wiring</p>
+        <p><strong>ID No.:</strong> 2025-001</p>
+      </div>
     </div>
   </div>
 
   <!-- BACK SIDE -->
   <div class="id-card back">
-    <div class="id-back-content">
-      <div class="logo-group">
-        <img src="sk-logo.png" alt="SK Logo" class="logo small-logo">
-        <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo">
-      </div>
+    <div class="id-header">
+      <img src="sk-logo.png" alt="SK Logo" class="logo small-logo">
+      <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo">
+    </div>
+    <div class="id-body back-body">
       <div class="purpose">
         <h3>Purpose of the Konekita ID</h3>
         <p>This ID certifies the holder is a verified jobseeker registered with Konekita: Santolan Labor Hub to connect with clients and projects.</p>
@@ -462,8 +462,6 @@ body {
     </div>
   </div>
 </div>
-
-
 
   
 </body>
