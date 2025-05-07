@@ -226,46 +226,93 @@ body {
     gap: 0.5rem;
   }
 }
-
-/* Modern, clean style for KONEKITA ID */
-.modern-id-card {
-  background-color: #28a745; /* Konekita green */
-  color: white;
-  max-width: 360px;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.konekita-id-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
   font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
-  margin-bottom: 30px;
-  transition: transform 0.3s ease;
 }
 
-.modern-id-card:hover {
-  transform: translateY(-5px);
+.konekita-id {
+  width: 320px;
+  min-height: 420px;
+  border-radius: 16px;
+  background-color: white;
+  border: 3px solid #28a745;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.konekita-id.back {
+  border-color: #6f42c1; /* purple */
 }
 
 .id-header {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-align: center;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 10px;
-}
-
-.id-body .id-row {
-  margin-bottom: 12px;
-  font-size: 0.95rem;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.id-body .label {
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+.logo {
+  height: 40px;
 }
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  object-fit: cover;
+  border: 3px solid #28a745;
+}
+
+.info {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  color: #333;
+}
+
+.info p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.back-info {
+  text-align: center;
+  margin-top: 30px;
+  color: #333;
+}
+
+.back-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #28a745;
+}
+
+.qr-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.qr-code img {
+  width: 120px;
+  height: 120px;
+  border: 2px dashed #6f42c1;
+  padding: 8px;
+  border-radius: 10px;
+}
+
 
   </style>
 </head>
@@ -355,15 +402,43 @@ body {
     </div>
   </div>
 
-<div class="modern-id-card">
-  <div class="id-header">SK KONEKITA ID</div>
-  <div class="id-body">
-    <div class="id-row"><span class="label">Name:</span> Juan Dela Cruz</div>
-    <div class="id-row"><span class="label">Job Title:</span> Electrician</div>
-    <div class="id-row"><span class="label">ID No.:</span> SK-2025-00123</div>
-    <div class="id-row"><span class="label">Contact:</span> 0917-123-4567</div>
+<div class="konekita-id-container">
+  <!-- FRONT -->
+  <div class="konekita-id front">
+    <div class="id-header">
+      <img src="sk-logo.png" alt="SK Logo" class="logo sk-logo">
+      <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo konekita-logo">
+    </div>
+    <div class="profile-section">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+      <div class="info">
+        <p><strong>Name:</strong> Juan Dela Cruz</p>
+        <p><strong>Age:</strong> 27</p>
+        <p><strong>Role:</strong> Electrician</p>
+        <p><strong>Expertise:</strong> Residential Wiring</p>
+        <p><strong>ID No.:</strong> 2025-001</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK -->
+  <div class="konekita-id back">
+    <div class="id-header">
+      <img src="sk-logo.png" alt="SK Logo" class="logo sk-logo">
+      <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo konekita-logo">
+    </div>
+    <div class="back-info">
+      <h3>Purpose of the Konekita ID</h3>
+      <p>This ID certifies the holder is a verified jobseeker registered with Konekita: Santolan Labor Hub to connect with clients and projects.</p>
+    </div>
+    <div class="qr-section">
+      <div class="qr-code">
+        <img src="qr-placeholder.png" alt="QR Code">
+      </div>
+    </div>
   </div>
 </div>
+
 
   
 </body>
