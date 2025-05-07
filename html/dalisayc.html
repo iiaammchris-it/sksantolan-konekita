@@ -226,92 +226,113 @@ body {
     gap: 0.5rem;
   }
 }
-.konekita-id-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-}
 
-.konekita-id {
-  width: 320px;
-  min-height: 420px;
-  border-radius: 16px;
-  background-color: white;
-  border: 3px solid #28a745;
-  padding: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
 
-.konekita-id.back {
-  border-color: #6f42c1; /* purple */
-}
-
-.id-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.logo {
-  height: 40px;
-}
-
-.profile-section {
+    .id-card-container {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
+}
+
+.id-card {
+  width: 600px;
+  height: 250px;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  border-left: 6px solid #28a745;
+  border-right: 6px solid #6f42c1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.id-card.back {
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  padding: 30px 40px;
+}
+
+.id-left {
+  flex: 0 0 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-pic {
   width: 100px;
   height: 100px;
   border-radius: 100px;
-  object-fit: cover;
   border: 3px solid #28a745;
+  object-fit: cover;
 }
 
-.info {
-  width: 100%;
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 10px;
+.id-center {
+  flex: 0 0 45%;
+  padding: 0 20px;
   color: #333;
-}
-
-.info p {
-  margin: 8px 0;
   font-size: 0.95rem;
 }
 
-.back-info {
-  text-align: center;
-  margin-top: 30px;
-  color: #333;
+.id-center p {
+  margin: 6px 0;
 }
 
-.back-info h3 {
+.id-right {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.id-title {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #28a745;
+  text-align: center;
+}
+
+.logo-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  object-fit: contain;
+}
+
+.small-logo {
+  height: 30px;
+}
+
+.id-back-content .purpose h3 {
+  color: #28a745;
   font-size: 1.1rem;
   margin-bottom: 10px;
-  color: #28a745;
 }
 
-.qr-section {
-  margin-top: 40px;
-  text-align: center;
+.id-back-content .purpose p {
+  font-size: 0.95rem;
+  color: #444;
 }
 
 .qr-code img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border: 2px dashed #6f42c1;
-  padding: 8px;
   border-radius: 10px;
+  margin-top: 15px;
 }
+
 
 
   </style>
@@ -402,42 +423,46 @@ body {
     </div>
   </div>
 
-<div class="konekita-id-container">
-  <!-- FRONT -->
-  <div class="konekita-id front">
-    <div class="id-header">
-      <img src="sk-logo.png" alt="SK Logo" class="logo sk-logo">
-      <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo konekita-logo">
-    </div>
-    <div class="profile-section">
+<div class="id-card-container">
+  <!-- FRONT SIDE -->
+  <div class="id-card front">
+    <div class="id-left">
       <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-      <div class="info">
-        <p><strong>Name:</strong> Juan Dela Cruz</p>
-        <p><strong>Age:</strong> 27</p>
-        <p><strong>Role:</strong> Electrician</p>
-        <p><strong>Expertise:</strong> Residential Wiring</p>
-        <p><strong>ID No.:</strong> 2025-001</p>
+    </div>
+    <div class="id-center">
+      <p><strong>Name:</strong> Juan Dela Cruz</p>
+      <p><strong>Age:</strong> 27</p>
+      <p><strong>Position:</strong> Electrician</p>
+      <p><strong>Field of Expertise:</strong> Residential Wiring</p>
+      <p><strong>Konekita ID No.:</strong> 2025-001</p>
+    </div>
+    <div class="id-right">
+      <div class="logo-group">
+        <img src="sk-logo.png" alt="SK Logo" class="logo small-logo">
+        <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo">
       </div>
+      <h2 class="id-title">SK KONEKITA ID</h2>
     </div>
   </div>
 
-  <!-- BACK -->
-  <div class="konekita-id back">
-    <div class="id-header">
-      <img src="sk-logo.png" alt="SK Logo" class="logo sk-logo">
-      <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo konekita-logo">
-    </div>
-    <div class="back-info">
-      <h3>Purpose of the Konekita ID</h3>
-      <p>This ID certifies the holder is a verified jobseeker registered with Konekita: Santolan Labor Hub to connect with clients and projects.</p>
-    </div>
-    <div class="qr-section">
+  <!-- BACK SIDE -->
+  <div class="id-card back">
+    <div class="id-back-content">
+      <div class="logo-group">
+        <img src="sk-logo.png" alt="SK Logo" class="logo small-logo">
+        <img src="konekita-header-logo.png" alt="Konekita Logo" class="logo">
+      </div>
+      <div class="purpose">
+        <h3>Purpose of the Konekita ID</h3>
+        <p>This ID certifies the holder is a verified jobseeker registered with Konekita: Santolan Labor Hub to connect with clients and projects.</p>
+      </div>
       <div class="qr-code">
         <img src="qr-placeholder.png" alt="QR Code">
       </div>
     </div>
   </div>
 </div>
+
 
 
   
