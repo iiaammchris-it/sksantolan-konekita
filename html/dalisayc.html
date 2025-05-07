@@ -227,35 +227,45 @@ body {
   }
 }
 
-
-    /* Add this to your CSS file or inside a <style> tag */
-.konekita-id-card {
-  background-color: #28a745; /* Replace with your brand's green */
+/* Modern, clean style for KONEKITA ID */
+.modern-id-card {
+  background-color: #28a745; /* Konekita green */
   color: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px;
+  max-width: 360px;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
 }
 
-.konekita-id-card h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
+.modern-id-card:hover {
+  transform: translateY(-5px);
+}
+
+.id-header {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
   text-align: center;
-  border-bottom: 2px solid white;
-  padding-bottom: 0.5rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
 }
 
-.konekita-id-card .id-details p {
-  margin: 0.5rem 0;
-  font-size: 1rem;
+.id-body .id-row {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
 }
 
+.id-body .label {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
 
   </style>
 </head>
@@ -345,15 +355,16 @@ body {
     </div>
   </div>
 
-<div class="konekita-id-card">
-  <h2>SK KONEKITA ID</h2>
-  <div class="id-details">
-    <p><strong>Name:</strong> Juan Dela Cruz</p>
-    <p><strong>Job Title:</strong> Electrician</p>
-    <p><strong>ID Number:</strong> SK-2025-00123</p>
-    <p><strong>Contact:</strong> 0917-123-4567</p>
+<div class="modern-id-card">
+  <div class="id-header">SK KONEKITA ID</div>
+  <div class="id-body">
+    <div class="id-row"><span class="label">Name:</span> Juan Dela Cruz</div>
+    <div class="id-row"><span class="label">Job Title:</span> Electrician</div>
+    <div class="id-row"><span class="label">ID No.:</span> SK-2025-00123</div>
+    <div class="id-row"><span class="label">Contact:</span> 0917-123-4567</div>
   </div>
 </div>
+
   
 </body>
 </html>
