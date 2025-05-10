@@ -22,12 +22,18 @@
         body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-image: url('gilas-vid.mp4');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
     }
-
+    
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+    
     header {
   display: flex;
   flex-wrap: wrap;
@@ -739,6 +745,11 @@
     </div>
 
     <div class="right-panel">
+
+      <video autoplay muted loop playsinline id="bg-video">
+            <source src="gilas-vid.mp4" type="video/mp4">
+      </video>
+
       <div id="timestamp"></div>
       <div class="member-card">
         <img src="konekita-header-logo.png" alt="Member 2" class="member-image">
