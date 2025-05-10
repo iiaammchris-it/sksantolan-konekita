@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="sklogo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KONEKITA</title>
+  <style>
+    @font-face {
+      font-family: 'Nunito-Bold';
+      src: url('fonts/Nunito-Bold.ttf') format('truetype');
+    }
+
+        html, body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* OK */
+  height: 100%;
+}
+        
+        body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-image: url('samplebg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+ 
+    header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100vw;
+  box-sizing: border-box;
+  height: 80px;
+}
+
+    .logo-holder {
+      max-width: 120px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+  justify-content: space-between; /* or space-around/center depending on layout */
+  padding: 0 20px; /* keeps spacing nice */
+  flex-wrap: wrap;
+        white-space: nowrap;
+  overflow: visible;
+    }
+    .member-card {
+    background-color: none;
+    overflow: hidden;
+    margin: 2% auto;
+    max-width: 90vw; /* limits width relative to viewport */
+    width: 100%;
+    border-radius: 10px; /* optional rounding */
+}
+
+.member-image {
+    width: 80%;
+    height: auto;
+    display: block;
+   margin: 0 auto; 
+    object-fit: cover; /* ensures proper scaling */
+}
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+      .nav-links a,
+.dropbtn {
+  position: relative;
+  display: inline-block;
+  color: #324163;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+    .nav-links a::after,
+.dropbtn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px; /* Adjust for spacing below text */
+  width: 0%;
+  height: 2px;
+  background-color: #4CAF50; /* Green underline */
+  transition: width 0.3s ease;
+}
+
+    .nav-links a:hover,
+.dropbtn:hover {
+  color: #4CAF50; /* Optional: change text color on hover */
+}
+
+     .nav-links a:hover::after,
+.dropbtn:hover::after {
+  width: 100%;
+}
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      max-height: 300px; /* Limit height */
+      overflow-y: auto; /* Enable vertical scroll */
+      z-index: 1001;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      display: block;
+      text-align: left;
+      color: #324163;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #B1B9C2;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .burger div {
+      width: 30px;
+      height: 4px; /* Thicker line */
+      background-color: #324163;
+      border-radius: 8px; /* Makes the line rounded */
+      margin: 3px 0;
+    }
+
+    @media (max-width: 768px) {
+       header {
+         width: 100%;
+        display: flex;
+        justify-content: space-between; /* Adjusts spacing between logo and burger */
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px 20px; /* Add padding instead of margin-left on burger */
+      }
+
+      .burger {
+        display: flex;
+        margin-left: 0;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: white;
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a, .dropbtn {
+        text-align: left;
+        padding: 15px 20px;
+        width: 100%;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+    }
+
+    
+    .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+    }
+
+    .left-panel {
+      width: 30%;
+      padding: 20px;
+      position: sticky;
+      top: 80px; /* <-- adjust this based on your header height */
+      height: calc(100vh - 100px); /* <-- also account for header height */
+      overflow-y: auto;
+      background-color: white;
+      border-right: 1px solid #ddd;
+    }
+
+    .left-panel .intro {
+      margin-bottom: 40px;
+    }
+
+    .left-panel .latest-jobs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .left-panel .job-card {
+      background: rgba(50, 208, 82, 0.2);
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .job-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+
+    }
+
+   .right-panel {
+      width: 70%;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 900px) {
+      .left-panel {
+        display: none;
+      }
+      .right-panel {
+        width: 100%;
+      }
+
+      .carousel-images img {
+        width: 100%;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro, .job-card, .carousel {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    .intro { animation-delay: 0.2s; }
+    .job-card:nth-child(2) { animation-delay: 0.4s; }
+    .job-card:nth-child(3) { animation-delay: 0.6s; }
+    .carousel { animation-delay: 0.8s; }
+
+ 
+
+    .toggle-button {
+      background-color: #2cae61;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-button:hover {
+      background-color: #43b471;
+    }
+
+    .browse-button {
+      background-color: #2cae61;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.3s ease;
+    }
+
+    .browse-button:hover {
+      background-color: #43b471;
+    }
+
+
+   
+    .browse-more {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .browse-more a {
+      background-color: #324163;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    @media (max-width: 500px) {
+  .profile-card {
+    width: 180px;
+    padding: 10px;
+  }
+
+  .img-title h2 {
+    font-size: 1.2em;
+  }
+}
+
+    .search-box {
+  margin: 20px 0;
+}
+
+.search-box input {
+  padding: 8px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-box button {
+  padding: 8px 12px;
+  background-color: #32d052;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+    .font-title{
+    font-size: 35px;
+    color: #324163;
+    padding: 13px 30px;
+    border: none;
+    font-family: 'Nunito-Bold', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    width: 200px; 
+}
+
+.img-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 40px auto;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .img-1 {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .img-title {
+      padding: 20px;
+    }
+
+    .img-subtitle {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .img-desc {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    
+    .jobtitle {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: center;
+      line-height: 1.6;
+      color: #333;
+      font-size: 30px;
+      margin-bottom: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .jobseekers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-vertical {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  height: 180px; /* Fixed height to keep image and text aligned */
+}
+
+.profile-vertical:hover {
+  transform: translateY(-2px);
+}
+
+.profile-vertical img {
+  width: 180px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px 0 0 12px;
+}
+
+.profile-details {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #324163;
+  line-height: 1.2;
+}
+
+.profile-details .job-title {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #742f88;
+}
+
+.profile-details .rate {
+  margin-top: 2px;
+  font-size: 0.9rem;
+  color: #00b894;
+}
+
+.profile-details .description {
+  margin-top: 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* limit to 2 lines */
+  -webkit-box-orient: vertical;
+}
+
+.book-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  background-color: #742f88;
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #5d2470;
+}
+
+.browse-more {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.browse-more a {
+  background-color: #324163;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+    
+ .carousel {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .carousel-description {
+      background: #fff;
+      margin-top: 15px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .carousel-images {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-images img {
+      flex: 0 0 auto;
+      width: calc(33.333% - 10px);
+      border-radius: 10px;
+      scroll-snap-align: start;
+    }
+
+    @media (max-width: 900px) {
+      .left-panel {
+        display: none;
+      }
+      .right-panel {
+        width: 100%;
+      }
+
+      .carousel-images img {
+        width: 100%;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro, .job-card, .carousel {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    .intro { animation-delay: 0.2s; }
+    .job-card:nth-child(2) { animation-delay: 0.4s; }
+    .job-card:nth-child(3) { animation-delay: 0.6s; }
+    .carousel { animation-delay: 0.8s; }
+
+    .carousel-description {
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    .description-wrapper {
+      max-height: 200px;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .description-wrapper.expanded {
+      max-height: 2000px;
+    }
+
+    .description-text {
+      white-space: pre-wrap;
+      font-family: inherit;
+      margin: 0;
+    }
+
+      #timestamp {
+  margin-left: 40px auto;
+  font-size: 14px;
+  color: #333;
+  padding: 10px;
+}
+
+.primary-nav {
+  position: relative;
+  color: #4CAF50;
+}
+
+.primary-nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px; /* Distance below the text */
+  width: 100%;
+  height: 2px;
+  background-color: #4CAF50;
+}
+
+
+  
+  .breadcrumb-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem; /* Add horizontal padding for better spacing */
+  box-sizing: border-box;
+  z-index: 10;
+ 
+}
+
+.breadcrumb {
+  max-width: 1200px;
+  margin-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem; /* Increased gap for more space between items */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem; /* Slightly larger font for readability */
+  line-height: 1.6;
+  color: #155724; /* Dark text color for better contrast */
+}
+
+.breadcrumb a {
+  color: #28a745;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #1e7e34;
+  text-decoration: underline; /* Adds an underline for hover effect */
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-container {
+    padding: 0.75rem 1.5rem; /* Reduced padding on smaller screens */
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo-holder">
+    <div class="burger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="register.html">REGISTER</a></li>
+        <li class="dropdown">
+          <a href="#"  class="primary-nav">SERVICES</a>
+          <div class="dropdown-content">
+             <a href="class1.html">Personal Services</a>
+            <a href="class1.html">Healthcare and Medical</a>
+            <a href="class1.html">Trades and Manual Labor</a>
+            <a href="class1.html">Marketing and Sales</a>
+            <a href="class1.html">Photography and Videography</a>
+            <a href="class1.html">Legal Services</a>
+            <a href="class1.html">Information Technology (IT)</a>
+            <a href="class1.html">Design and Creative</a>
+            <a href="class1.html">Writing and Content Creation</a>
+            <a href="class1.html">Consulting and Coaching</a>
+            <a href="class1.html">Education and Tutoring</a>
+            <a href="class1.html">Engineering and Architecture</a>
+            <a href="class1.html">Finance and Accounting</a>
+            <a href="class1.html">Virtual Assistance and Administrative Services</a>
+          </div>
+        </li>
+          <a href="org-struc.html" class="dropbtn">ABOUT US</a>
+        </li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="left-panel">
+      <div class="intro">
+        <h1 style="color:#2cae61;">WELCOME TO KONEKITA PORTAL!</h1>
+        <p>Discover job opportunities around Santolan and get hired quickly through our community-driven platform!</p>
+      </div>
+
+      <div class="latest-jobs">
+        <h3 style="color:#2cae61;">Latest Jobs</h3>
+        <div class="job-card"><img src="jo1.1.jpg" alt="Job Image" /><p><strong>Electrician Needed</strong><br>Barangay Santolan</p></div>
+        <div class="job-card"><img src="jo1.2.jpg" alt="Job Image" /><p><strong>House Painter</strong><br>Available ASAP</p></div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+    
+      <div id="timestamp"></div>
+      <div class="member-card">
+        <img src="konekita-header-logo.png" alt="Member 2" class="member-image">
+    </div>
+      
+<nav class="breadcrumb-container">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> › 
+    <span class="current">Services</span> ›
+    <span class="current">Finance and Accounting</span>
+  </div>
+</nav>
+      
+    <div class="main-content">
+
+        <p class="jobtitle"> Finance and Accounting </p>
+
+        <div class="jobseekers-list">
+          <div class="profile-vertical">
+            <img src="emp1.jpg" alt="Christian Dalisay">
+            <div class="profile-details">
+              <h3>Kathleen Dela Cruz</h3>
+              <p class="job-title">Welder</p>
+              <p class="description">Experienced firefighter with extensive training in emergency response and safety management.</p>
+              <a href="html/dalisayc.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+        
+          <div class="profile-vertical">
+            <img src="emp2.jpg" alt="Neil Jhon Baccol">
+            <div class="profile-details">
+              <h3>Stacey Donela</h3>
+              <p class="job-title">Carpenter</p>
+              <p class="description">Energetic event entertainer for children's parties and public events with 5+ years of experience.</p>
+              <a href="profile-neil.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+        
+          <div class="profile-vertical">
+            <img src="emp3.jpg" alt="Kyleen Reyes">
+            <div class="profile-details">
+              <h3>David Inocencio</h3>
+              <p class="job-title">Carpenter</p>
+              <p class="description">Musical performer and artist available for acoustic sets, traditional music, and event hosting.</p>
+              <a href="profile-kyleen.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+        
+          <div class="profile-vertical">
+            <img src="emp1.jpg" alt="Rovin Aquino">
+            <div class="profile-details">
+              <h3>Angela Puntalan</h3>
+              <p class="job-title">Construction Worker</p>
+              <p class="description">Certified plumber for home and commercial projects. Fast, reliable, and affordable service.</p>
+              <a href="profile-rovin.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+
+          <div class="profile-vertical">
+            <img src="emp2.jpg" alt="Christian Dalisay">
+            <div class="profile-details">
+              <h3>Christina Gregorio</h3>
+              <p class="job-title">Plumber</p>
+              <p class="description">Experienced firefighter with extensive training in emergency response and safety management.</p>
+              <a href="profile-christian.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+          
+          <div class="profile-vertical">
+            <img src="emp3.jpg" alt="Neil Jhon Baccol">
+            <div class="profile-details">
+              <h3>Neil Jhon Baccol</h3>
+              <p class="job-title">Clown</p>
+              <p class="description">Energetic event entertainer for children's parties and public events with 5+ years of experience.</p>
+              <a href="profile-neil.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+        
+          <div class="profile-vertical">
+            <img src="kyleen.jpg" alt="Kyleen Reyes">
+            <div class="profile-details">
+              <h3>Kyleen Reyes</h3>
+              <p class="job-title">Apo ni Toyang</p>
+              <p class="description">Musical performer and artist available for acoustic sets, traditional music, and event hosting.</p>
+              <a href="profile-kyleen.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+        
+          <div class="profile-vertical">
+            <img src="rovin.jpeg" alt="Rovin Aquino">
+            <div class="profile-details">
+              <h3>Rovin Aquino</h3>
+              <p class="job-title">Tubero</p>
+              <p class="description">Certified plumber for home and commercial projects. Fast, reliable, and affordable service.</p>
+              <a href="profile-rovin.html" class="book-btn">Book for Consultation</a>
+            </div>
+          </div>
+          
+        
+          <!-- Add more profiles similarly up to 10 -->
+        </div>
+        
+        <div class="browse-more">
+          <a href="jobseekers.html">Browse More</a>
+        </div>
+
+  </div>
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const wrapper = button.closest('.carousel-description').querySelector('.description-wrapper');
+          wrapper.classList.toggle('expanded');
+          button.textContent = wrapper.classList.contains('expanded') ? 'See Less' : 'See More';
+        });
+      });
+    });
+
+     function updateTimestamp() {
+        const now = new Date();
+        const options = {
+          weekday: 'short', year: 'numeric', month: 'short',
+          day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: true
+        };
+        const formattedTime = now.toLocaleString('en-US', options);
+        const timestampEl = document.getElementById('timestamp');
+        if (timestampEl) {
+          timestampEl.textContent = `🕒 ${formattedTime}`;
+        }
+      }
+    
+      // Initial load
+      updateTimestamp();
+      // Update every second
+      setInterval(updateTimestamp, 1000);
+  </script>
+      
+</body>
+</html>
