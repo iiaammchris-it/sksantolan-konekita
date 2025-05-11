@@ -1,123 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Players of the Week</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
+    :root {
+      --primary: #69281c;
+      --text: #222;
+      --bg: #fafafa;
+      --card-bg: #fff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
     header {
-      background-color: #5a189a;
-      color: white;
+      background: var(--primary);
+      color: #fff;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 1.5rem;
+      box-shadow: var(--shadow);
     }
 
-    .section {
-      padding: 2rem;
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
     }
 
-    .section h2 {
+    main {
+      padding: 2rem 5%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
       margin-bottom: 1rem;
-      font-size: 1.5rem;
-      color: #5a189a;
-      border-bottom: 2px solid #ccc;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      opacity: 0.2;
+      border-radius: 2px;
+    }
+
+    .scroll-wrapper {
+      overflow-x: auto;
       padding-bottom: 0.5rem;
+      -webkit-overflow-scrolling: touch;
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      display: flex;
       gap: 1rem;
+      flex-wrap: nowrap;
     }
 
     .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      min-width: 180px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
       overflow: hidden;
-      text-align: center;
-      transition: transform 0.2s;
+      position: relative;
+      flex-shrink: 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
-      transform: scale(1.02);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     }
 
     .card img {
       width: 100%;
-      height: auto;
+      height: 200px;
+      object-fit: cover;
       display: block;
     }
 
-    .download-btn {
-      display: block;
-      width: 100%;
-      background: #5a189a;
+    .download-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(105, 40, 28, 0.9);
       color: white;
+      border-radius: 50%;
+      padding: 6px;
+      font-size: 14px;
       text-decoration: none;
-      padding: 0.5rem;
-      font-size: 0.9rem;
+      z-index: 2;
+      transition: background 0.2s ease;
     }
 
-    .download-btn:hover {
-      background: #7b2cbf;
+    .download-icon:hover {
+      background-color: rgba(105, 40, 28, 1);
+    }
+
+    /* Scrollbar customization for webkit browsers */
+    .scroll-wrapper::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .scroll-wrapper::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
     }
 
     @media (max-width: 600px) {
-      .section h2 {
-        font-size: 1.2rem;
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      section h2 {
+        font-size: 1.1rem;
+      }
+
+      .card img {
+        height: 160px;
+      }
+
+      .download-icon {
+        font-size: 13px;
+        padding: 5px;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Players of the Week</h1>
-</header>
+  <header>
+    <h1>Players of the Week</h1>
+  </header>
 
-<main>
+  <main>
 
-  <!-- Repeat this block per sport -->
-  <section class="section">
-    <h2>Basketball - Novice Division</h2>
-    <div class="gallery">
-      <div class="card">
-        <img src="players/basketball-novice/player1.jpg" alt="Player 1">
-        <a class="download-btn" href="players/basketball-novice/player1.jpg" download>Download</a>
+    <!-- Example Section -->
+    <section>
+      <h2>Basketball - Novice Division</h2>
+      <div class="scroll-wrapper">
+        <div class="gallery">
+          <div class="card">
+            <a href="players/basketball-novice/player1.jpg" download class="download-icon" title="Download">&#128229;</a>
+            <img src="players/basketball-novice/player1.jpg" alt="Player 1" />
+          </div>
+          <div class="card">
+            <a href="players/basketball-novice/player2.jpg" download class="download-icon" title="Download">&#128229;</a>
+            <img src="players/basketball-novice/player2.jpg" alt="Player 2" />
+          </div>
+          <!-- Add more player cards -->
+        </div>
       </div>
-      <div class="card">
-        <img src="players/basketball-novice/player2.jpg" alt="Player 2">
-        <a class="download-btn" href="players/basketball-novice/player2.jpg" download>Download</a>
+    </section>
+
+    <!-- Duplicate for other divisions -->
+    <section>
+      <h2>Volleyball - Womens Competitive</h2>
+      <div class="scroll-wrapper">
+        <div class="gallery">
+          <div class="card">
+            <a href="players/volleyball-womens-competitive/player1.jpg" download class="download-icon" title="Download">&#128229;</a>
+            <img src="players/volleyball-womens-competitive/player1.jpg" alt="Player 1" />
+          </div>
+        </div>
       </div>
-      <!-- Add more players here -->
-    </div>
-  </section>
+    </section>
 
-  <!-- Duplicate and change titles and image paths for other divisions/sports -->
-  <section class="section">
-    <h2>Volleyball - Womens Competitive</h2>
-    <div class="gallery">
-      <div class="card">
-        <img src="players/volleyball-womens-competitive/player1.jpg" alt="Player 1">
-        <a class="download-btn" href="players/volleyball-womens-competitive/player1.jpg" download>Download</a>
-      </div>
-    </div>
-  </section>
+    <!-- Add more sections for each sport -->
 
-  <!-- Continue for all sports... -->
-  <!-- Badminton, Sepak Takraw, Table Tennis, Chess, Billiards, etc. -->
-
-</main>
+  </main>
 
 </body>
 </html>
