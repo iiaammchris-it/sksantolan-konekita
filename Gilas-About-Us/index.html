@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" type="image/png" href="sklogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONEKITA</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+     html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+     
+        body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-image: url('samplebg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+    .logo-holder {
+      max-width: 120px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+  justify-content: space-between; /* or space-around/center depending on layout */
+  padding: 0 20px; /* keeps spacing nice */
+  flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+       .nav-links a,
+.dropbtn {
+  position: relative;
+  display: inline-block;
+  color: #324163;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+    .nav-links a::after,
+.dropbtn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px; /* Adjust for spacing below text */
+  width: 0%;
+  height: 2px;
+  background-color: #4CAF50; /* Green underline */
+  transition: width 0.3s ease;
+}
+
+    .nav-links a:hover,
+.dropbtn:hover {
+  color: #4CAF50; /* Optional: change text color on hover */
+}
+
+     .nav-links a:hover::after,
+.dropbtn:hover::after {
+  width: 100%;
+}
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      display: block;
+      text-align: left;
+      color: #324163;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #B1B9C2;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+        
+    .burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+    .burger div {
+      width: 30px;
+      height: 4px;
+      background-color: #324163;
+      margin: 3px 0;
+      border-radius: 8px; /* Makes the line rounded */
+    }
+
+    @media (max-width: 768px) {
+ header {
+         width: 100%;
+        display: flex;
+        justify-content: space-between; /* Adjusts spacing between logo and burger */
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px 20px; /* Add padding instead of margin-left on burger */
+      }
+
+  .logo-holder {
+    margin: 10px auto;
+  }
+
+  .burger {
+        display: flex;
+        margin-left: 0;
+      }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a, .dropbtn {
+    text-align: left;
+    padding: 15px 20px;
+    width: 100%;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+}
+
+
+        .structure-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            background: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .structure-container h2 {
+            text-align: center;
+            color: #2e3a59;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .org-section {
+            margin-bottom: 40px;
+        }
+
+        .org-section h3 {
+            color: #324163;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-left: 5px solid #6a5acd;
+            padding-left: 10px;
+        }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .org-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight {
+            background-color: #e6e0ff;
+            border: 2px solid #6a5acd;
+        }
+
+        .org-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #ddd;
+        }
+
+        .org-card h4 {
+            margin: 10px 0 5px;
+            font-size: 16px;
+            color: #2e3a59;
+        }
+
+        .org-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+         
+.missiondesc {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .missiontitle {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+      line-height: 1.6;
+      color: #333;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+         .member-card {
+    background-color: none;
+    overflow: hidden;
+    margin: 2% auto;
+    max-width: 90vw; /* limits width relative to viewport */
+    width: 100%;
+    border-radius: 10px; /* optional rounding */
+}
+
+.member-image {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* centers the image horizontally */
+    object-fit: cover; /* ensures proper scaling */
+}
+
+  transition: transform 0.3s ease;
+}
+/* Animate fade-in on load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer {
+  background-color: #4b2e83;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  padding: 40px 20px 20px;
+  animation: fadeInUp 0.8s ease-in-out both;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer h2,
+.footer h4 {
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer h2:hover,
+.footer h4:hover {
+  color: #d1c4e9;
+}
+
+.footer-brand p,
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-brand p:hover,
+.footer-contact p:hover {
+  opacity: 1;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin: 5px 0;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.footer-links ul li:hover {
+  transform: translateX(5px);
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #d1c4e9;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  border-top: 1px solid #6a4fa3;
+  margin-top: 20px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-bottom:hover {
+  opacity: 1;
+}
+
+.footer-logo {
+  width: 100px;
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+}
+
+  .dropdown-content a i {
+  margin-right: 8px;
+  color: #555; /* Adjust color if needed */
+}
+ 
+  .breadcrumb-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem; /* Add horizontal padding for better spacing */
+  box-sizing: border-box;
+  z-index: 10;
+ 
+}
+
+.breadcrumb {
+  max-width: 1200px;
+  margin-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem; /* Increased gap for more space between items */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem; /* Slightly larger font for readability */
+  line-height: 1.6;
+  color: #155724; /* Dark text color for better contrast */
+}
+
+.breadcrumb a {
+  color: #28a745;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #1e7e34;
+  text-decoration: underline; /* Adds an underline for hover effect */
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-container {
+    padding: 0.75rem 1.5rem; /* Reduced padding on smaller screens */
+  }
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+}
+
+         
+    </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo" class="logo-holder">
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="register.html">REGISTER</a></li>
+        <li class="dropdown">
+          <a href="#">SERVICES</a>
+          <div class="dropdown-content">
+  <a href="class1.html"><i class="fas fa-user"></i> Personal Services</a>
+  <a href="class1.html"><i class="fas fa-stethoscope"></i> Healthcare and Medical</a>
+  <a href="class1.html"><i class="fas fa-hammer"></i> Trades and Manual Labor</a>
+  <a href="class1.html"><i class="fas fa-bullhorn"></i> Marketing and Sales</a>
+  <a href="class1.html"><i class="fas fa-camera"></i> Photography and Videography</a>
+  <a href="class1.html"><i class="fas fa-gavel"></i> Legal Services</a>
+  <a href="class1.html"><i class="fas fa-laptop-code"></i> Information Technology (IT)</a>
+  <a href="class1.html"><i class="fas fa-paint-brush"></i> Design and Creative</a>
+  <a href="class1.html"><i class="fas fa-pen-nib"></i> Writing and Content Creation</a>
+  <a href="class1.html"><i class="fas fa-chalkboard-teacher"></i> Consulting and Coaching</a>
+  <a href="class1.html"><i class="fas fa-book-open"></i> Education and Tutoring</a>
+  <a href="class1.html"><i class="fas fa-drafting-compass"></i> Engineering and Architecture</a>
+  <a href="class1.html"><i class="fas fa-calculator"></i> Finance and Accounting</a>
+  <a href="class1.html"><i class="fas fa-headset"></i> Virtual Assistance and Administrative Services</a>
+  <a href="class1.html"><i class="fas fa-utensils"></i> Food Services</a>
+  <a href="class1.html"><i class="fas fa-music"></i> Entertainment Services</a>
+</div>
+        </li>
+        <li>
+          <a href="org-struc.html" class="primary-nav">ABOUT US</a>
+        </li>
+        
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.classList.toggle('active');
+    }
+
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const parentLi = event.target.closest('li');
+      parentLi.classList.toggle('open');
+    }
+
+
+  </script>
+
+<nav class="breadcrumb-container">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> › 
+    <span class="current">About Us</span>
+  </div>
+</nav>
+     
+  <section class="structure-container">
+        <div class="member-card">
+        <img src="konekita-header-logo.png" alt="Member 2" class="member-image">
+    </div>
+        <h2> KONEKITA: SANTOLAN LABOR HUB </h2>
+        <p class="missiondesc"> KoneKita: Santolan Labor Hub Web Portal
+An innovative local online platform designed to connect skilled workers, freelancers, and professionals from Santolan to potential clients, employers, and business opportunities. KoneKita serves as a centralized hub for job matching, service promotion, and community networking. By enabling direct market access and reducing the gap between labor and demand, the platform empowers local talents, promotes inclusive employment, and contributes to the sustainable economic growth of the Santolan community. KoneKita also supports digital literacy and modern work readiness by providing an accessible space for showcasing skills, building client relationships, and finding income-generating opportunities—all in one convenient online portal. </p>
+     
+    <h2>Organizational Structure</h2>
+
+    <div class="org-section">
+      <h3>SK Council</h3>
+      <div class="org-grid">
+        <div class="org-card highlight">
+          <img src="chairman.jpg" alt="SK Chairperson">
+          <h4>Elijah Q. Boncay</h4>
+          <p>Chairperson</p>
+        </div>
+        <!-- 9 Councilors -->
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Mycah C. Macalalad</h4>
+          <p>SK Kagawad</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Vince Jeus B. Castelo</h4>
+          <p>SK Kagawad</p>
+        </div>
+        <div class="org-card">
+          <img src="king.jpg" alt="Councilor">
+          <h4>King Jordan T. Maginang</h4>
+          <p>SK Kagawad</p>
+        </div>
+        <div class="org-card">
+          <img src="lau.jpg" alt="Councilor">
+          <h4>Laurence M. Mendoza</h4>
+          <p>SK Kagawad</p>
+        </div>
+        <div class="org-card">
+          <img src="ralph.jpg" alt="Councilor">
+          <h4>Ralph Laurenz Iglesia</h4>
+          <p>SK Kagawad</p>
+        </div>
+        <div class="org-card">
+          <img src="guia.jpg" alt="Councilor">
+          <h4>Guia Monica L. Mariano</h4>
+          <p>SK Kagawad</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Kyleen S. Reyes </h4>
+          <p>SK Kagawad</p>
+        </div>
+        <div class="org-card">
+          <img src="kyleen.jpg" alt="Councilor">
+          <h4>Mariel E. Dipolog CTT, CPA</h4>
+          <p>SK Treasurer</p>
+        </div>
+           <div class="org-card">
+          <img src="jose.jpg" alt="PIO">
+          <h4>Jose Angelo A. Cruz</h4>
+          <p>SK Secretary</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-section">
+      <h3>SK Executive Committee</h3>
+      <div class="org-grid">
+        <div class="org-card">
+          <img src="kate.jpg" alt="Secretary">
+          <h4>Kate Jazzy Laureta</h4>
+          <p>SK Undersecretary</p>
+        </div>
+        <div class="org-card">
+          <img src="matthew.jpg" alt="Treasurer">
+          <h4>Arvin Matthew L. Estanislao</h4>
+          <p>SK Executive Assistant</p>
+        </div>
+        <div class="org-card">
+          <img src="andrew.jpg" alt="Auditor">
+          <h4>Andrew Clarence S. Paurillo</h4>
+          <p>SK Social Media Manager</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="PIO">
+          <h4>Christian Dalisay</h4>
+          <p>SK IT Head | Lead Developer of Konekita</p>
+        </div>
+      </div>
+    </div>
+
+       
+    <div class="org-section">
+      <h3>SK Social Media Team</h3>
+      <div class="org-grid">
+        <div class="org-card">
+          <img src="andrew.jpg" alt="Social Media Member">
+          <h4>Andrew Clarence S. Paurillo</h4>
+          <p>SK Social Media Manager</p>
+          </div>
+            <div class="org-card">
+          <img src="lorenzo.jpg" alt="Social Media Member">
+          <h4>Lorenzo Pascual</h4>
+          <p>SK Creative Media</p>
+        </div>
+        <div class="org-card">
+          <img src="intan.jpg" alt="Social Media Member">
+          <h4>Kenneth Junio</h4>
+          <p>SK Documentation</p>
+        </div>
+        <div class="org-card">
+          <img src="riel.jpg" alt="Social Media Member">
+          <h4>Riel Villanueva</h4>
+          <p>SK Post Production</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-section">
+      <h3>IT Officers</h3>
+      <div class="org-grid">
+          <div class="org-card highlight">
+          <img src="intan.jpg" alt="IT Officer">
+          <h4>Christian Dalisay</h4>
+          <p>IT Head | KoneKita Lead Developer</p>
+        </div>
+        <div class="org-card">
+          <img src="neil.jpg" alt="IT Officer">
+          <h4>Neil Jhon Baccol</h4>
+          <p>IT Officer | Web Administrator</p>
+        </div>
+        <div class="org-card">
+          <img src="rovin.jpeg" alt="IT Officer">
+          <h4>Rovinjorg Aquino</h4>
+          <p>IT Officer | Web Administrator</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+   
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="konekita-header-logo.png" alt="Konekita Logo" class="footer-logo" />
+      <h2>Konekita</h2>
+      <p>Connecting skilled workers in Santolan to job opportunities and consultations.</p>
+      
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Job Listings</a></li>
+        <li><a href="#">Consultation</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>Email: konekita@santolan.org</p>
+      <p>Phone: (02) 1234-5678</p>
+         <div class="social-icons">
+        <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+          <img src="fb-logo.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/YourProfile" target="_blank" aria-label="Instagram">
+          <img src="ig-logo.png" alt="Instagram" />
+        </a>
+      </div>
+    </div>
+  </div>
+     
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Konekita: Santolan Labor Hub. All rights reserved.</p>
+  </div>
+</footer>
+     
+</body>
+</html>
