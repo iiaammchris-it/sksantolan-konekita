@@ -700,6 +700,23 @@
   padding: 10px;
 }
 
+    .schedule-carousel {
+      display: none;
+      margin-top: 16px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .schedule-carousel img {
+      height: 150px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .expanded .schedule-carousel {
+      display: block;
+    }
+    
 
   </style>
 </head>
@@ -757,6 +774,23 @@
     </div>
       
     <div class="main-content">
+
+      <div class="jobseekers-list highlight-maroon">
+  <div class="profile-vertical" id="profile1">
+    <img src="novice-sched.jpg" alt="Novice" width="100">
+    <div class="profile-details">
+      <h3>Novice Division</h3>
+      <p class="job-title">May 13, 2025 - May 18, 2025</p>
+      <a href="#" class="book-btn" onclick="toggleSchedule('profile1')">Check Schedule</a>
+      <div class="schedule-carousel">
+        <img src="sched1.jpg" alt="Schedule 1">
+        <img src="sched2.jpg" alt="Schedule 2">
+        <img src="sched3.jpg" alt="Schedule 3">
+      </div>
+    </div>
+  </div>
+</div>
+
 
         <p class="jobtitle"> NOVICE DIVISION </p>
 
@@ -833,6 +867,12 @@
       updateTimestamp();
       // Update every second
       setInterval(updateTimestamp, 1000);
+
+
+    function toggleSchedule(id) {
+    const profile = document.getElementById(id);
+    profile.classList.toggle('expanded');
+  }
   </script>
       
 </body>
