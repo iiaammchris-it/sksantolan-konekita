@@ -28,7 +28,7 @@ html, body {
       background-attachment: fixed;
     }
 
-    header {
+ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -45,13 +45,31 @@ html, body {
   height: 80px;
 }
 
-
     .logo-holder {
       max-width: 120px;
       height: auto;
     }
 
-      nav {
+       .member-card {
+    background-color: none;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 90vw; /* limits width relative to viewport */
+    width: 100%;
+    border-radius: 10px; /* optional rounding */
+}
+
+.member-image {
+    width: 80%;
+    height: auto;
+    display: block;
+   margin: 0 auto; 
+    object-fit: cover; /* ensures proper scaling */
+}
+
+
+
+    nav {
       display: flex;
       align-items: center;
   justify-content: space-between; /* or space-around/center depending on layout */
@@ -121,6 +139,43 @@ html, body {
   background-color: #4CAF50;
 }
 
+ .reg-btn {
+  display: inline-block;
+  color: #2cae61; /* fresh green for text */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none; /* removes underline */
+  padding: 12px 24px;
+  border-radius: 5px; /* Rounded corners for a sleek look */
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+   margin: 20px auto;
+  text-align: center;
+  display: block;
+}
+
+.reg-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #2cae61; /* underline color */
+  transition: width 0.3s ease; /* smooth underline animation */
+}
+
+.reg-btn:hover {
+  color: #249653; /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.reg-btn:hover::after {
+  width: 100%; /* Underline grows to full width */
+}
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -150,20 +205,12 @@ html, body {
       display: block;
     }
 
-
-    .container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: flex-start;
-    }
-
     .burger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  margin-left: auto;
-}
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+    }
 
     .burger div {
       width: 30px;
@@ -174,7 +221,7 @@ html, body {
     }
 
     @media (max-width: 768px) {
-   header {
+      header {
          width: 100%;
         display: flex;
         justify-content: space-between; /* Adjusts spacing between logo and burger */
@@ -183,16 +230,12 @@ html, body {
         padding: 10px 20px; /* Add padding instead of margin-left on burger */
       }
 
-  .logo-holder {
-    margin: 10px auto;
-  }
+      .burger {
+        display: flex;
+        margin-left: 0;
+      }
 
-  .burger {
-    display: flex;
-    margin-left: 0;
-  }
-
- nav {
+      nav {
         display: none;
         flex-direction: column;
         align-items: flex-start;
@@ -221,30 +264,26 @@ html, body {
         width: 100%;
       }
 
-  .dropdown-content {
-    display: none;
-    position: relative;
+
+ .dropdown-content {
+        display: none;
+        position: relative;
+        width: 100%;
+        box-shadow: none;
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+    }
+
+
+    .container {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    box-shadow: none;
-  }
-
-  .dropdown.open .dropdown-content {
-    display: block;
-  }
-}
-
-.contact-section {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 40px;
-  margin: 40px auto;
-  max-width: 900px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  font-family: 'Montserrat', sans-serif;
-  color: #324163;
-  backdrop-filter: blur(10px);
-  border: 1px solid #e0e0e0;
-}
+    align-items: flex-start;
+    }
 
 .contact-section h2 {
   font-size: 32px;
