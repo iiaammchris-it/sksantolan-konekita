@@ -449,15 +449,6 @@
   margin: 0 auto;
 }
 
-.profile-vertical {
-  display: flex;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  transition: transform 0.2s ease;
-  height: 180px; /* Fixed height to keep image and text aligned */
-}
 
 .profile-vertical:hover {
   transform: translateY(-2px);
@@ -699,28 +690,33 @@
   border-radius: 10px;
   padding: 10px;
 }
-
-.schedule-container {
-  margin-top: 16px;
+.profile-vertical {
+  border: 2px solid #d66;
+  border-radius: 10px;
+  padding: 16px;
+  background-color: #fff;
+  transition: all 0.3s ease; /* optional smooth animation */
 }
 
-/* Start hidden */
 .schedule-carousel {
   display: none;
-  overflow-x: auto;
+  margin-top: 16px;
   white-space: nowrap;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 }
 
-/* Style the images */
+
 .schedule-carousel img {
   height: 150px;
   margin-right: 10px;
   border-radius: 5px;
 }
 
-/* Show the carousel when .expanded is added to .profile-vertical */
 .profile-vertical.expanded .schedule-carousel {
-  display: block;
+  display: flex; /* now makes it appear in a row below */
+   max-height: 500px; /* Adjust this depending on content */
 }
 
   </style>
@@ -882,6 +878,7 @@
     function toggleSchedule(id) {
   const profile = document.getElementById(id);
   profile.classList.toggle('expanded');
+}
 }
   </script>
       
