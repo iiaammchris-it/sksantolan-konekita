@@ -6,13 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>SK SANTOLAN</title>
-
     <style>
-        @font-face {
-        font-family: 'Nunito-Bold';
-        src: url('fonts/Nunito-Bold.ttf') format('truetype');
-        }
-
+	    
 html, body {
   margin: 0;
   padding: 0;
@@ -28,7 +23,7 @@ html, body {
       background-attachment: fixed;
     }
 
- header {
+    header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -50,26 +45,7 @@ html, body {
       height: auto;
     }
 
-       .member-card {
-    background-color: none;
-    overflow: hidden;
-    margin: 0 auto;
-    max-width: 90vw; /* limits width relative to viewport */
-    width: 100%;
-    border-radius: 10px; /* optional rounding */
-}
-
-.member-image {
-    width: 80%;
-    height: auto;
-    display: block;
-   margin: 0 auto; 
-    object-fit: cover; /* ensures proper scaling */
-}
-
-
-
-    nav {
+nav {
       display: flex;
       align-items: center;
   justify-content: space-between; /* or space-around/center depending on layout */
@@ -139,7 +115,7 @@ html, body {
   background-color: #4CAF50;
 }
 
- .reg-btn {
+    .reg-btn {
   display: inline-block;
   color: #2cae61; /* fresh green for text */
   font-family: 'Montserrat', sans-serif;
@@ -219,9 +195,8 @@ html, body {
       margin: 3px 0;
       border-radius: 8px; /* Makes the line rounded */
     }
-
     @media (max-width: 768px) {
-      header {
+   header {
          width: 100%;
         display: flex;
         justify-content: space-between; /* Adjusts spacing between logo and burger */
@@ -230,12 +205,16 @@ html, body {
         padding: 10px 20px; /* Add padding instead of margin-left on burger */
       }
 
-      .burger {
-        display: flex;
-        margin-left: 0;
-      }
+  .logo-holder {
+    margin: 10px auto;
+  }
 
-      nav {
+  .burger {
+    display: flex;
+    margin-left: 0;
+  }
+
+ nav {
         display: none;
         flex-direction: column;
         align-items: flex-start;
@@ -284,6 +263,20 @@ html, body {
     width: 100%;
     align-items: flex-start;
     }
+}
+
+.contact-section {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 900px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-family: 'Montserrat', sans-serif;
+  color: #324163;
+  backdrop-filter: blur(10px);
+  border: 1px solid #e0e0e0;
+}
 
 .contact-section h2 {
   font-size: 32px;
@@ -494,6 +487,8 @@ html, body {
     gap: 0.5rem;
   }
 }
+
+
 
     </style>
 </head>
