@@ -149,36 +149,36 @@
       }
     }
 
-  .loader-bars {
+ .text-loader {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: center;
   height: 100vh;
-  gap: 6px;
-  background: #f0f0f0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  gap: 4px;
 }
-.loader-bars span {
-  width: 8px;
-  height: 20px;
-  background: #00c853;
-  animation: barBounce 1s infinite ease-in-out;
+.text-loader span {
+  color: #00c853;
+  animation: textBounce 1.2s infinite;
 }
-.loader-bars span:nth-child(2) { animation-delay: 0.1s; }
-.loader-bars span:nth-child(3) { animation-delay: 0.2s; }
-.loader-bars span:nth-child(4) { animation-delay: 0.3s; }
-.loader-bars span:nth-child(5) { animation-delay: 0.4s; }
+.text-loader span:nth-child(2) { animation-delay: 0.1s; }
+.text-loader span:nth-child(3) { animation-delay: 0.2s; }
+.text-loader span:nth-child(4) { animation-delay: 0.3s; }
+.text-loader span:nth-child(5) { animation-delay: 0.4s; }
+.text-loader span:nth-child(6) { animation-delay: 0.5s; }
+.text-loader span:nth-child(7) { animation-delay: 0.6s; }
 
-@keyframes barBounce {
-  0%, 100% { height: 20px; }
-  50% { height: 60px; }
+@keyframes textBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
-
   </style>
 </head>
 <body>
 
- <div class="loader-bars">
-  <span></span><span></span><span></span><span></span><span></span>
+ <div class="text-loader">
+  <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
 </div>
 
 <!-- Tawk.to Script -->
