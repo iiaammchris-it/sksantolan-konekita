@@ -8,12 +8,55 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       background: #f7f7fb;
       color: #333;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      inset: 0;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    #loader-wrapper.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .text-loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      gap: 4px;
+    }
+
+    .text-loader span {
+      color: #00c853;
+      animation: textBounce 1.2s infinite;
+    }
+
+    .text-loader span:nth-child(2) { animation-delay: 0.1s; }
+    .text-loader span:nth-child(3) { animation-delay: 0.2s; }
+    .text-loader span:nth-child(4) { animation-delay: 0.3s; }
+    .text-loader span:nth-child(5) { animation-delay: 0.4s; }
+    .text-loader span:nth-child(6) { animation-delay: 0.5s; }
+    .text-loader span:nth-child(7) { animation-delay: 0.6s; }
+
+    @keyframes textBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
     .profile-container {
@@ -148,53 +191,15 @@
         font-size: 1rem;
       }
     }
-
- #loader-wrapper {
-      position: fixed;
-      inset: 0;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-    #loader-wrapper.hide {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* Text Loader Style */
-    .text-loader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 24px;
-      gap: 4px;
-    }
-    .text-loader span {
-      color: #00c853;
-      animation: textBounce 1.2s infinite;
-    }
-    .text-loader span:nth-child(2) { animation-delay: 0.1s; }
-    .text-loader span:nth-child(3) { animation-delay: 0.2s; }
-    .text-loader span:nth-child(4) { animation-delay: 0.3s; }
-    .text-loader span:nth-child(5) { animation-delay: 0.4s; }
-    .text-loader span:nth-child(6) { animation-delay: 0.5s; }
-    .text-loader span:nth-child(7) { animation-delay: 0.6s; }
-
-    @keyframes textBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
   </style>
 </head>
 <body>
 
- <div class="text-loader">
-  <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
+<!-- Loader -->
+<div id="loader-wrapper">
+  <div class="text-loader">
+    <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
+  </div>
 </div>
 
 <!-- Tawk.to Script -->
@@ -210,12 +215,12 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 
+<!-- Main Profile -->
 <div class="profile-container">
   <button class="back-button" onclick="history.back()">
     <i class="fas fa-arrow-left"></i> Back
   </button>
 
-  <!-- Top Section -->
   <div class="top-section">
     <img src="avatar2.jpg" alt="Profile Picture" class="profile-img" />
     <div class="info">
@@ -225,7 +230,6 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </div>
 
-  <!-- Experience -->
   <div class="section">
     <h3>Experience</h3>
     <ul class="experience-list">
@@ -236,7 +240,6 @@ s0.parentNode.insertBefore(s1,s0);
     </ul>
   </div>
 
-  <!-- Portfolio -->
   <div class="section">
     <h3>Portfolio</h3>
     <div class="swiper">
@@ -252,7 +255,6 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </div>
 
-  <!-- Credentials -->
   <div class="section">
     <h3>Credentials</h3>
     <div class="credentials">
@@ -263,7 +265,7 @@ s0.parentNode.insertBefore(s1,s0);
   </div>
 </div>
 
-<!-- Zoom Script -->
+<!-- Zoom Feature -->
 <script>
 function zoom(img) {
   const src = img.src;
@@ -295,6 +297,8 @@ function zoom(img) {
   document.body.appendChild(overlay);
 }
 </script>
+
+<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 const swiper = new Swiper('.swiper', {
@@ -320,11 +324,13 @@ const swiper = new Swiper('.swiper', {
 });
 </script>
 
+<!-- Loader Hide Script -->
 <script>
-    window.addEventListener('load', () => {
-      document.getElementById('loader-wrapper').classList.add('hide');
-    });
-  </script>
-  
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-wrapper');
+    loader.classList.add('hide');
+  });
+</script>
+
 </body>
 </html>
