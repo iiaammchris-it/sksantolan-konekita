@@ -724,11 +724,6 @@
     }
 
 
-
-
-
- 
-
   </style>
 </head>
 <body>
@@ -987,15 +982,13 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
 
-  
- <div id="loader-wrapper">
-    <div class="text-loader">
-      <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
-    </div>
-  </div>
-
-
-
+<!-- Loader Hide Script -->
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-wrapper');
+    loader.classList.add('hide');
+  });
+</script>
 
 <footer class="footer">
   <div class="footer-container">
