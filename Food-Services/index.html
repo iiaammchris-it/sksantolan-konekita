@@ -691,12 +691,60 @@
   }
 }
 
+#loader-wrapper {
+      position: fixed;
+      inset: 0;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
 
+    #loader-wrapper.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .text-loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      gap: 4px;
+    }
+
+    .text-loader span {
+      color: #00c853;
+      animation: textBounce 1.2s infinite;
+    }
+
+    .text-loader span:nth-child(2) { animation-delay: 0.1s; }
+    .text-loader span:nth-child(3) { animation-delay: 0.2s; }
+    .text-loader span:nth-child(4) { animation-delay: 0.3s; }
+    .text-loader span:nth-child(5) { animation-delay: 0.4s; }
+    .text-loader span:nth-child(6) { animation-delay: 0.5s; }
+    .text-loader span:nth-child(7) { animation-delay: 0.6s; }
+
+    @keyframes textBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
 
   </style>
 </head>
 <body>
   <header>
+
+    
+ <div id="loader-wrapper">
+    <div class="text-loader">
+      <span>K</span><span>O</span><span>N</span><span>E</span><span>K</span><span>I</span><span>T</span><span>A</span>
+    </div>
+  </div>
+
     <img src="logo.png" alt="Logo" class="logo-holder">
     <div class="burger" onclick="toggleMenu()">
       <div></div><div></div><div></div>
@@ -840,6 +888,15 @@
       // Update every second
       setInterval(updateTimestamp, 1000);
   </script>
+
+      
+ <!-- Loader Hide Script -->
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-wrapper');
+    loader.classList.add('hide');
+  });
+</script>
       
 </body>
 </html>v
