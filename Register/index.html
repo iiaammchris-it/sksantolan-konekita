@@ -261,7 +261,7 @@ html, body {
 }
 
          
-  .breadcrumb-container {
+  .breadcrumbContainer {
   position: sticky;
   top: 0;
   width: 100%;
@@ -272,7 +272,7 @@ html, body {
 }
 
 .breadcrumb {
-  max-width: 1200px;
+  max-width: 200px;
   margin-left: 0;
   display: flex;
   flex-wrap: wrap;
@@ -429,12 +429,7 @@ html, body {
   setInterval(updateTimestamp, 1000);
 </script>
 
-<nav class="breadcrumb-container">
-  <div class="breadcrumb">
-    <a href="/Home">Home</a>  
-    <span class="current">About Us</span>
-  </div>
-</nav>
+<nav class="breadcrumb" id="breadcrumb"></nav>
 
 <div class="form-container">
   <iframe 
@@ -454,5 +449,26 @@ html, body {
 </script>
 
 </div>
+
+       <script>
+    function generateBreadcrumbs() {
+      const breadcrumbContainer = document.getElementById('breadcrumb');
+      const path = window.location.pathname;
+      const segments = path.split('/').filter(Boolean);
+
+      let fullPath = '/';
+      const crumbs = segments.map((segment, index) => {
+        fullPath += `${segment}/`;
+        const name = decodeURIComponent(segment.replace(/[-_]/g, ' ')).replace(/\b\w/g, l => l.toUpperCase());
+        return `<a href="${fullPath}">${name}</a>`;
+      });
+
+      breadcrumbContainer.innerHTML = `<a href="/">Home</a>` +
+        (crumbs.length ? `<span>›</span>` + crumbs.join('<span>›</span>') : '');
+    }
+
+    generateBreadcrumbs();
+  </script>
+     
 </body>
 </html>
