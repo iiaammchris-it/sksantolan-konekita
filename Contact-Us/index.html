@@ -470,27 +470,6 @@ html, body {
     }
 
 
-
-         
-
-         .breadcrumbs {
-      font-family: sans-serif;
-      font-size: 14px;
-      margin: 20px;
-    }
-    .breadcrumbs a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-    .breadcrumbs a:hover {
-      text-decoration: underline;
-    }
-    .breadcrumbs span {
-      margin: 0 5px;
-    }
-
-
-
     </style>
 </head>
 <body>
@@ -540,7 +519,7 @@ html, body {
     </nav>
 </header>
 
-<nav class="breadcrumbs" id="breadcrumb"></nav>
+<nav class="breadcrumb" id="breadcrumb"></nav>
      
 <section id="contact" class="contact-section">
   <h2>Contact Us</h2>
@@ -652,7 +631,7 @@ html, body {
       });
 
       breadcrumbContainer.innerHTML = `<a href="/">Home</a>` +
-        (crumbs.length ? `<span>/</span>` + crumbs.join('<span>/</span>') : '');
+        (crumbs.length ? `<span>›</span>` + crumbs.join('<span>›</span>') : '');
     }
 
     generateBreadcrumbs();
