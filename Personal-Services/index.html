@@ -646,7 +646,7 @@
 
 
   
-  .breadcrumb-container {
+  .breadcrumbContainer {
   position: sticky;
   top: 0;
   width: 100%;
@@ -657,7 +657,7 @@
 }
 
 .breadcrumb {
-  max-width: 1200px;
+  max-width: 200px;
   margin-left: 0;
   display: flex;
   flex-wrap: wrap;
@@ -802,13 +802,7 @@
         <img src="konekita-header-logo.png" alt="Member 2" class="member-image">
     </div>
       
-<nav class="breadcrumb-container">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> › 
-    <span class="current">Services</span> ›
-    <span class="current">Personal Services</span>
-  </div>
-</nav>
+<nav class="breadcrumb" id="breadcrumb"></nav>
       
     <div class="main-content">
 
@@ -894,6 +888,26 @@
     loader.classList.add('hide');
   });
 </script>
+
+        <script>
+    function generateBreadcrumbs() {
+      const breadcrumbContainer = document.getElementById('breadcrumb');
+      const path = window.location.pathname;
+      const segments = path.split('/').filter(Boolean);
+
+      let fullPath = '/';
+      const crumbs = segments.map((segment, index) => {
+        fullPath += `${segment}/`;
+        const name = decodeURIComponent(segment.replace(/[-_]/g, ' ')).replace(/\b\w/g, l => l.toUpperCase());
+        return `<a href="${fullPath}">${name}</a>`;
+      });
+
+      breadcrumbContainer.innerHTML = `<a href="/">Home</a>` +
+        (crumbs.length ? `<span>›</span>` + crumbs.join('<span>›</span>') : '');
+    }
+
+    generateBreadcrumbs();
+  </script>
       
 </body>
 </html>
