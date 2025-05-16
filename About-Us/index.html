@@ -449,7 +449,7 @@
   color: #555; /* Adjust color if needed */
 }
  
-  .breadcrumb-container {
+  .breadcrumbContainer {
   position: sticky;
   top: 0;
   width: 100%;
@@ -460,7 +460,7 @@
 }
 
 .breadcrumb {
-  max-width: 1200px;
+  max-width: 200px;
   margin-left: 0;
   display: flex;
   flex-wrap: wrap;
@@ -601,12 +601,7 @@
     </div>
   </div>
 
-<nav class="breadcrumb-container">
-  <div class="breadcrumb">
-    <span class="current">Home</span> › 
-    <span class="current">About Us</span>
-  </div>
-</nav>
+<nav class="breadcrumb" id="breadcrumb"></nav>
      
   <section class="structure-container">
         <div class="member-card">
@@ -799,6 +794,24 @@ An innovative local online platform designed to connect skilled workers, freelan
     <p>&copy; 2025 Konekita: Santolan Labor Hub. All rights reserved.</p>
   </div>
 </footer>
-     
+     <script>
+    function generateBreadcrumbs() {
+      const breadcrumbContainer = document.getElementById('breadcrumb');
+      const path = window.location.pathname;
+      const segments = path.split('/').filter(Boolean);
+
+      let fullPath = '/';
+      const crumbs = segments.map((segment, index) => {
+        fullPath += `${segment}/`;
+        const name = decodeURIComponent(segment.replace(/[-_]/g, ' ')).replace(/\b\w/g, l => l.toUpperCase());
+        return `<a href="${fullPath}">${name}</a>`;
+      });
+
+      breadcrumbContainer.innerHTML = `<a href="/">Home</a>` +
+        (crumbs.length ? `<span>›</span>` + crumbs.join('<span>›</span>') : '');
+    }
+
+    generateBreadcrumbs();
+  </script>
 </body>
 </html>
