@@ -471,6 +471,25 @@ html, body {
 
 
 
+         
+
+         .breadcrumbs {
+      font-family: sans-serif;
+      font-size: 14px;
+      margin: 20px;
+    }
+    .breadcrumbs a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+    .breadcrumbs span {
+      margin: 0 5px;
+    }
+
+
 
     </style>
 </head>
@@ -521,12 +540,7 @@ html, body {
     </nav>
 </header>
 
-<nav class="breadcrumb-container">
-  <div class="breadcrumb">
-    <span class="current">Home</span> › 
-    <span class="current">Contact Us</span>
-  </div>
-</nav>
+<nav class="breadcrumbs" id="breadcrumb"></nav>
      
 <section id="contact" class="contact-section">
   <h2>Contact Us</h2>
@@ -624,6 +638,24 @@ html, body {
     <p>&copy; 2025 Konekita: Santolan Labor Hub. All rights reserved.</p>
   </div>
 </footer>
+  <script>
+    function generateBreadcrumbs() {
+      const breadcrumbContainer = document.getElementById('breadcrumb');
+      const path = window.location.pathname;
+      const segments = path.split('/').filter(Boolean);
 
+      let fullPath = '/';
+      const crumbs = segments.map((segment, index) => {
+        fullPath += `${segment}/`;
+        const name = decodeURIComponent(segment.replace(/[-_]/g, ' ')).replace(/\b\w/g, l => l.toUpperCase());
+        return `<a href="${fullPath}">${name}</a>`;
+      });
+
+      breadcrumbContainer.innerHTML = `<a href="/">Home</a>` +
+        (crumbs.length ? `<span>/</span>` + crumbs.join('<span>/</span>') : '');
+    }
+
+    generateBreadcrumbs();
+  </script>
 </body>
 </html>
