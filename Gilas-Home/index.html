@@ -867,11 +867,10 @@ Tara na’t saksihan ang aksyon sa loob ng court—ang liga ng Kabataang Santole
   </script>
 
 	    
-
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function() {
-    emailjs.init("im32DyJRalhvNdnEF"); // Replace with your actual EmailJS public key
+    emailjs.init("im32DyJRalhvNdnEF"); // ✅ This is your public key – correct here
   })();
 </script>
 
@@ -879,7 +878,45 @@ Tara na’t saksihan ang aksyon sa loob ng court—ang liga ng Kabataang Santole
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  emailjs.sendForm('service_heycawr', 'im32DyJRalhvNdnEF', this)
+  emailjs.sendForm('service_heycawr', '<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("im32DyJRalhvNdnEF"); // ✅ This is your public key – correct here
+  })();
+</script>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  emailjs.sendForm('service_heycawr', '<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("im32DyJRalhvNdnEF"); // ✅ This is your public key – correct here
+  })();
+</script>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  emailjs.sendForm('service_heycawr', 'template_aqgrm5b', this) // ✅ Use your real template ID here
+    .then(() => {
+      alert('Message sent successfully!');
+    }, (error) => {
+      console.log('FAILED...', error);
+      alert('Something went wrong. Please try again.');
+    });
+});
+</script>', this) // ✅ Use your real template ID here
+    .then(() => {
+      alert('Message sent successfully!');
+    }, (error) => {
+      console.log('FAILED...', error);
+      alert('Something went wrong. Please try again.');
+    });
+});
+</script>', this) // ✅ Use your real template ID here
     .then(() => {
       alert('Message sent successfully!');
     }, (error) => {
@@ -888,8 +925,6 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     });
 });
 </script>
-
-
 	
 </body>
 </html>
