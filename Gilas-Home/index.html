@@ -824,12 +824,23 @@ Tara na’t saksihan ang aksyon sa loob ng court—ang liga ng Kabataang Santole
       <!--END OF ANNOUNCEMENT 3 -->
       <!--ANNOUNCEMENT 4 -->
 
-     <form id="contact-form">
-  <input type="text" name="user_name" placeholder="Your Name" required>
-  <input type="email" name="user_email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
+   <form
+  action="https://formspree.io/f/xnndrqev"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
   <button type="submit">Send</button>
 </form>
+
+	    
 
   <script>
     function toggleMenu() {
@@ -866,26 +877,7 @@ Tara na’t saksihan ang aksyon sa loob ng court—ang liga ng Kabataang Santole
       setInterval(updateTimestamp, 1000);
   </script>
 
-	   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("im32DyJRalhvNdnEF"); // ✅ This is your public key – correct here
-  })();
-</script>
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  emailjs.sendForm('service_heycawr', 'template_ed6tvoj', this) // ✅ Use your real template ID here
-    .then(() => {
-      alert('Message sent successfully!');
-    }, (error) => {
-      console.log('FAILED...', error);
-      alert('Something went wrong. Please try again.');
-    });
-});
-</script>
+	
 
 	
 </body>
