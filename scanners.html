@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Scanner</title>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <h2>QR Code Scanner</h2>
+  <div id="reader" style="width: 300px;"></div>
+  <p><strong>Name:</strong> <span id="nameOutput"></span></p>
+  <p><strong>Age:</strong> <span id="ageOutput"></span></p>
+
+  <script>
+    function onScanSuccess(decodedText) {
+      try {
+        const data = JSON.parse(decodedText);
+        document.getElementById("nameOutput").textContent = data.name;
+        document.getElementById("ageOutput").textContent = data.age;
+      } catch (e) {
+        alert("Invalid QR code data");
+      }
+    }
+
+    const html5QrCode = new Html5Qrcode("reader");
+    html5QrCode.start(
+      { facingMode: "environment" },
+      { fps: 10, qrbox: 250 },
+      onScanSuccess
+    );
+  </script>
+</body>
+</html>
